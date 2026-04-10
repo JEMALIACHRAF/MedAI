@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedAI Clinical — Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   TOKENS & RESET
+═══════════════════════════════════════════════════════════ */
+:root {
+  --bg:          #05070d;
+  --surface:     #0b0f1a;
+  --surface2:    #111827;
+  --border:      #1e2740;
+  --border2:     #2a3554;
+  --text:        #c8d6f0;
+  --text-dim:    #5d7098;
+  --text-bright: #eef2ff;
+  --accent:      #06b6d4;
+  --accent-glow: rgba(6,182,212,.18);
+  --accent2:     #818cf8;
+  --danger:      #f43f5e;
+  --danger-bg:   rgba(244,63,94,.1);
+  --danger-bdr:  rgba(244,63,94,.35);
+  --success:     #10b981;
+  --success-bg:  rgba(16,185,129,.1);
+  --success-bdr: rgba(16,185,129,.35);
+  --warn:        #f59e0b;
+  --warn-bg:     rgba(245,158,11,.08);
+  --warn-bdr:    rgba(245,158,11,.3);
+  --radius:      10px;
+  --sidebar-w:   240px;
+  --font:        'Sora', sans-serif;
+  --mono:        'DM Mono', monospace;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { font-size:15px; scroll-behavior:smooth }
+body {
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  overflow:hidden;
+}
+
+/* Noise texture overlay */
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:.4;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════════ */
+.sidebar {
+  position:fixed; left:0; top:0; bottom:0;
+  width:var(--sidebar-w);
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column;
+  z-index:50;
+  padding:0 0 1.5rem;
+}
+
+/* Logo */
+.sidebar-logo {
+  padding:1.6rem 1.4rem 1.4rem;
+  border-bottom:1px solid var(--border);
+  margin-bottom:.8rem;
+}
+.logo-mark {
+  font-family:var(--mono);
+  font-size:.85rem;
+  font-weight:500;
+  letter-spacing:.06em;
+  color:var(--text-bright);
+  display:flex; align-items:center; gap:.5rem;
+}
+.logo-mark .dot {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(.85)}
+}
+.logo-sub {
+  font-size:.65rem;
+  color:var(--text-dim);
+  margin-top:.25rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* Nav */
+.nav-section {
+  padding:.6rem .8rem .2rem;
+}
+.nav-label {
+  font-size:.6rem;
+  font-family:var(--mono);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  padding:.3rem .6rem;
+  margin-bottom:.2rem;
+}
+.nav-item {
+  display:flex; align-items:center; gap:.75rem;
+  padding:.6rem .75rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:.8rem;
+  font-weight:400;
+  color:var(--text-dim);
+  transition:all .18s ease;
+  border:1px solid transparent;
+  margin-bottom:2px;
+  user-select:none;
+}
+.nav-item:hover {
+  background:var(--surface2);
+  color:var(--text);
+}
+.nav-item.active {
+  background: linear-gradient(135deg,rgba(6,182,212,.12),rgba(129,140,248,.06));
+  border-color:var(--border2);
+  color:var(--text-bright);
+}
+.nav-item .nav-icon {
+  width:28px; height:28px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:6px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  font-size:.85rem;
+  flex-shrink:0;
+  transition:all .18s;
+}
+.nav-item.active .nav-icon {
+  background:var(--accent-glow);
+  border-color:rgba(6,182,212,.4);
+}
+
+/* Status badge */
+.sidebar-footer {
+  margin-top:auto;
+  padding:0 1rem;
+}
+.status-card {
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:.75rem 1rem;
+  font-family:var(--mono);
+}
+.status-row {
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:.7rem;
+}
+.status-label { color:var(--text-dim); }
+.status-indicator {
+  display:flex; align-items:center; gap:.4rem;
+  font-size:.68rem;
+  font-weight:500;
+}
+.status-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--text-dim);
+}
+.status-dot.online { background:var(--success); box-shadow:0 0 5px var(--success); }
+.status-dot.offline { background:var(--danger); }
+.status-meta {
+  font-size:.62rem;
+  color:var(--text-dim);
+  margin-top:.4rem;
+  line-height:1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════════════════════════════════ */
+.main {
+  margin-left:var(--sidebar-w);
+  flex:1;
+  height:100vh;
+  overflow-y:auto;
+  position:relative;
+  z-index:1;
+}
+
+/* Gradient background orbs */
+.main::before {
+  content:'';
+  position:fixed;
+  top:-20%;
+  right:-10%;
+  width:500px; height:500px;
+  background:radial-gradient(circle,rgba(6,182,212,.04) 0%,transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.page-header {
+  padding:2rem 2.5rem 1.5rem;
+  border-bottom:1px solid var(--border);
+  position:sticky; top:0;
+  background:rgba(5,7,13,.92);
+  backdrop-filter:blur(16px);
+  z-index:10;
+}
+.page-title {
+  font-size:1.1rem;
+  font-weight:600;
+  color:var(--text-bright);
+  display:flex; align-items:center; gap:.6rem;
+}
+.page-title .tag {
+  font-family:var(--mono);
+  font-size:.62rem;
+  background:var(--accent-glow);
+  border:1px solid rgba(6,182,212,.3);
+  color:var(--accent);
+  padding:2px 8px;
+  border-radius:20px;
+  letter-spacing:.05em;
+}
+.page-desc {
+  font-size:.78rem;
+  color:var(--text-dim);
+  margin-top:.3rem;
+}
+
+.content {
+  padding:2rem 2.5rem;
+  position:relative; z-index:1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PANELS & GRIDS
+═══════════════════════════════════════════════════════════ */
+.panel {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.5rem;
+}
+.panel-title {
+  font-size:.65rem;
+  font-family:var(--mono);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  margin-bottom:1.2rem;
+  display:flex; align-items:center; gap:.5rem;
+}
+.panel-title::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:12px;
+  background:var(--accent);
+  border-radius:2px;
+}
+
+.grid-2 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+}
+.grid-3 {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UPLOAD ZONE
+═══════════════════════════════════════════════════════════ */
+.upload-zone {
+  border:1.5px dashed var(--border2);
+  border-radius:10px;
+  background:var(--surface2);
+  padding:2.5rem 1.5rem;
+  text-align:center;
+  cursor:pointer;
+  transition:all .2s ease;
+  position:relative;
+  overflow:hidden;
+}
+.upload-zone:hover, .upload-zone.dragover {
+  border-color:var(--accent);
+  background:rgba(6,182,212,.04);
+}
+.upload-zone .upload-icon {
+  font-size:2rem;
+  margin-bottom:.75rem;
+  display:block;
+  opacity:.6;
+}
+.upload-zone .upload-title {
+  font-size:.82rem;
+  color:var(--text);
+  margin-bottom:.3rem;
+}
+.upload-zone .upload-sub {
+  font-size:.7rem;
+  color:var(--text-dim);
+  font-family:var(--mono);
+}
+.upload-zone input[type=file] {
+  position:absolute; inset:0; opacity:0; cursor:pointer;
+}
+.upload-preview {
+  width:100%;
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  position:relative;
+}
+.upload-preview img {
+  width:100%; display:block;
+  max-height:260px; object-fit:cover;
+}
+.preview-overlay {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:.5rem .75rem;
+  background:linear-gradient(transparent,rgba(5,7,13,.85));
+  font-size:.7rem; color:var(--text-dim); font-family:var(--mono);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORM CONTROLS
+═══════════════════════════════════════════════════════════ */
+.field { margin-bottom:1.1rem; }
+.field label {
+  display:block;
+  font-size:.7rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.field input, .field textarea {
+  width:100%;
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:7px;
+  color:var(--text);
+  font-family:var(--font);
+  font-size:.83rem;
+  padding:.6rem .85rem;
+  outline:none;
+  transition:border-color .18s, box-shadow .18s;
+  resize:vertical;
+}
+.field input:focus, .field textarea:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(6,182,212,.1);
+}
+.field textarea { min-height:110px; line-height:1.6; }
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem 1.3rem;
+  border-radius:7px;
+  font-family:var(--font);
+  font-size:.8rem;
+  font-weight:500;
+  cursor:pointer;
+  border:1px solid transparent;
+  transition:all .18s ease;
+  outline:none;
+  white-space:nowrap;
+}
+.btn-primary {
+  background:var(--accent);
+  color:#06080d;
+  border-color:var(--accent);
+}
+.btn-primary:hover { background:#22d3ee; }
+.btn-primary:disabled {
+  opacity:.35; cursor:not-allowed; pointer-events:none;
+}
+.btn-ghost {
+  background:transparent;
+  border-color:var(--border2);
+  color:var(--text-dim);
+}
+.btn-ghost:hover { border-color:var(--text-dim); color:var(--text); }
+
+/* ═══════════════════════════════════════════════════════════
+   RESULT CARDS
+═══════════════════════════════════════════════════════════ */
+.result-card {
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.2rem 1.4rem;
+  animation:fadeUp .35s ease both;
+}
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.result-card.hidden { display:none; }
+
+.result-metric {
+  display:flex; flex-direction:column; gap:.2rem;
+}
+.result-metric-label {
+  font-size:.62rem;
+  font-family:var(--mono);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+}
+.result-metric-value {
+  font-size:2rem;
+  font-weight:600;
+  color:var(--text-bright);
+  line-height:1;
+}
+.result-metric-sub {
+  font-size:.7rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  margin-top:.3rem;
+}
+
+/* Prediction badge */
+.badge {
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.3rem .85rem;
+  border-radius:20px;
+  font-family:var(--mono);
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:.04em;
+}
+.badge-danger {
+  background:var(--danger-bg);
+  border:1px solid var(--danger-bdr);
+  color:var(--danger);
+}
+.badge-success {
+  background:var(--success-bg);
+  border:1px solid var(--success-bdr);
+  color:var(--success);
+}
+.badge-neutral {
+  background:rgba(129,140,248,.1);
+  border:1px solid rgba(129,140,248,.3);
+  color:var(--accent2);
+}
+
+/* Confidence bar */
+.conf-track {
+  height:5px;
+  background:var(--border);
+  border-radius:3px;
+  margin:.75rem 0 .5rem;
+  overflow:hidden;
+}
+.conf-fill {
+  height:100%;
+  border-radius:3px;
+  transition:width .8s cubic-bezier(.25,.46,.45,.94);
+  width:0%;
+}
+
+/* Metric row (small cards) */
+.metric-row {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.75rem;
+  margin-top:1rem;
+}
+.metric-mini {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:.75rem 1rem;
+  text-align:center;
+}
+.metric-mini-val {
+  font-family:var(--mono);
+  font-size:1rem;
+  font-weight:500;
+  color:var(--text-bright);
+}
+.metric-mini-lbl {
+  font-size:.6rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-top:.2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TEXT ANALYSIS BARS
+═══════════════════════════════════════════════════════════ */
+.pred-row {
+  margin-bottom:.8rem;
+  animation:fadeUp .3s ease both;
+}
+.pred-row-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:.35rem;
+}
+.pred-label { font-size:.8rem; color:var(--text); }
+.pred-pct {
+  font-family:var(--mono);
+  font-size:.72rem;
+  color:var(--text-dim);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RAG — CHAT LAYOUT
+═══════════════════════════════════════════════════════════ */
+.answer-panel {
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1.4rem;
+  font-size:.85rem;
+  line-height:1.8;
+  color:var(--text);
+  animation:fadeUp .4s ease both;
+}
+.sources-row {
+  display:flex; flex-wrap:wrap; gap:.4rem;
+  margin-top:1.2rem;
+}
+.source-pill {
+  font-size:.65rem;
+  font-family:var(--mono);
+  background:var(--surface);
+  border:1px solid var(--border2);
+  color:var(--text-dim);
+  border-radius:20px;
+  padding:2px 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DISCLAIMER
+═══════════════════════════════════════════════════════════ */
+.disclaimer {
+  background:var(--warn-bg);
+  border:1px solid var(--warn-bdr);
+  border-radius:7px;
+  padding:.6rem 1rem;
+  font-size:.72rem;
+  font-family:var(--mono);
+  color:var(--warn);
+  margin-top:1.2rem;
+  display:flex; align-items:flex-start; gap:.5rem;
+  line-height:1.5;
+}
+.disclaimer::before { content:'⚠'; flex-shrink:0; }
+
+/* ═══════════════════════════════════════════════════════════
+   LOADING SPINNER
+═══════════════════════════════════════════════════════════ */
+.spinner-wrap {
+  display:flex; flex-direction:column; align-items:center; gap:1rem;
+  padding:2.5rem;
+  animation:fadeUp .2s ease both;
+}
+.spinner {
+  width:36px; height:36px;
+  border:2px solid var(--border2);
+  border-top-color:var(--accent);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.spinner-text {
+  font-size:.75rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  letter-spacing:.06em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ERROR CARD
+═══════════════════════════════════════════════════════════ */
+.error-card {
+  background:var(--danger-bg);
+  border:1px solid var(--danger-bdr);
+  border-radius:8px;
+  padding:.8rem 1.1rem;
+  font-size:.78rem;
+  color:var(--danger);
+  font-family:var(--mono);
+  animation:fadeUp .25s ease both;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION VISIBILITY
+═══════════════════════════════════════════════════════════ */
+.section { display:none; }
+.section.active { display:block; }
+
+/* Sub-tabs */
+.subtab-bar {
+  display:flex; gap:.3rem;
+  margin-bottom:1.5rem;
+}
+.subtab {
+  padding:.45rem 1rem;
+  border-radius:6px;
+  font-size:.75rem;
+  font-weight:500;
+  cursor:pointer;
+  border:1px solid var(--border);
+  color:var(--text-dim);
+  background:transparent;
+  transition:all .15s;
+  font-family:var(--font);
+}
+.subtab.active, .subtab:hover {
+  background:var(--surface2);
+  color:var(--text-bright);
+  border-color:var(--border2);
+}
+.subtab.active { border-color:var(--accent); color:var(--accent); }
+
+.subpanel { display:none; }
+.subpanel.active { display:block; }
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+
+/* Divider */
+.divider {
+  height:1px;
+  background:var(--border);
+  margin:1.5rem 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<aside class="sidebar">
+
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <div class="dot"></div>
+      MedAI Clinical
+    </div>
+    <div class="logo-sub">Intelligence Platform v2.0</div>
+  </div>
+
+  <nav class="nav-section">
+    <div class="nav-label">Modules</div>
+
+    <div class="nav-item active" data-section="cnn" onclick="navigate(this,'cnn')">
+      <div class="nav-icon">🔬</div>
+      <span>Lesion CNN</span>
+    </div>
+
+    <div class="nav-item" data-section="multimodal" onclick="navigate(this,'multimodal')">
+      <div class="nav-icon">🧠</div>
+      <span>Image Analysis</span>
+    </div>
+
+    <div class="nav-item" data-section="rag" onclick="navigate(this,'rag')">
+      <div class="nav-icon">📚</div>
+      <span>Clinical RAG</span>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="status-card">
+      <div class="status-row">
+        <span class="status-label">Backend</span>
+        <div class="status-indicator" id="statusIndicator">
+          <div class="status-dot" id="statusDot"></div>
+          <span id="statusText">Checking…</span>
+        </div>
+      </div>
+      <div class="status-meta" id="statusMeta">—</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main class="main">
+
+  <!-- ══ SECTION 1: CNN ══ -->
+  <div id="section-cnn" class="section active">
+    <div class="page-header">
+      <div class="page-title">
+        Skin Lesion Classification
+        <span class="tag">CNN · HAM10000</span>
+      </div>
+      <div class="page-desc">Binary classification of dermoscopy images using a trained convolutional neural network</div>
+    </div>
+
+    <div class="content">
+      <div class="grid-2">
+
+        <!-- Upload Column -->
+        <div>
+          <div class="panel-title">Input Image</div>
+          <div id="cnnUploadZone" class="upload-zone" style="display:block">
+            <span class="upload-icon">🩺</span>
+            <div class="upload-title">Drop dermoscopy image here</div>
+            <div class="upload-sub">JPG, JPEG, PNG · max 20 MB</div>
+            <input type="file" id="cnnFile" accept=".jpg,.jpeg,.png" onchange="handleCnnFile(event)">
+          </div>
+          <div id="cnnPreview" class="upload-preview" style="display:none; margin-top:1rem;">
+            <img id="cnnImg" src="" alt="Preview">
+            <div class="preview-overlay" id="cnnPreviewLabel">—</div>
+          </div>
+
+          <div style="margin-top:1.2rem;display:flex;gap:.6rem;align-items:center">
+            <button class="btn btn-primary" id="cnnRunBtn" onclick="runCnn()" disabled>
+              ▶ Run Classification
+            </button>
+            <button class="btn btn-ghost" onclick="resetCnn()">Reset</button>
+          </div>
+        </div>
+
+        <!-- Result Column -->
+        <div>
+          <div class="panel-title">Prediction Result</div>
+          <div id="cnnIdle" style="color:var(--text-dim);font-size:.8rem;padding:2.5rem 0;text-align:center;line-height:1.8;">
+            Upload an image and click<br>
+            <strong style="color:var(--text)">Run Classification</strong> to see the result.
+          </div>
+          <div id="cnnLoading" class="spinner-wrap" style="display:none">
+            <div class="spinner"></div>
+            <div class="spinner-text">Running inference…</div>
+          </div>
+          <div id="cnnResult" class="result-card hidden">
+            <div class="result-metric">
+              <div class="result-metric-label">Prediction</div>
+              <div style="display:flex;align-items:center;gap:.8rem;margin:.4rem 0">
+                <div class="result-metric-value" id="cnnPredText">—</div>
+                <div class="badge" id="cnnBadge">—</div>
+              </div>
+            </div>
+            <div class="conf-track">
+              <div class="conf-fill" id="cnnConfBar"></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-mini">
+                <div class="metric-mini-val" id="cnnConfVal">—</div>
+                <div class="metric-mini-lbl">Confidence</div>
+              </div>
+              <div class="metric-mini">
+                <div class="metric-mini-val" id="cnnRawVal">—</div>
+                <div class="metric-mini-lbl">Raw Score</div>
+              </div>
+              <div class="metric-mini">
+                <div class="metric-mini-val" id="cnnMsVal">—</div>
+                <div class="metric-mini-lbl">Latency</div>
+              </div>
+            </div>
+            <div class="disclaimer">
+              This output is not a clinical diagnosis. Consult a licensed dermatologist for interpretation.
+            </div>
+          </div>
+          <div id="cnnError" class="error-card" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2: MULTIMODAL ══ -->
+  <div id="section-multimodal" class="section">
+    <div class="page-header">
+      <div class="page-title">
+        Multimodal Analysis
+        <span class="tag">GPT-4o Vision · Zero-Shot</span>
+      </div>
+      <div class="page-desc">Visual question answering on clinical images and zero-shot text classification</div>
+    </div>
+
+    <div class="content">
+      <div class="subtab-bar">
+        <div class="subtab active" onclick="switchSubtab(this,'vqa')">Image + Question (VQA)</div>
+        <div class="subtab" onclick="switchSubtab(this,'text')">Text Classification</div>
+      </div>
+
+      <!-- VQA -->
+      <div id="subpanel-vqa" class="subpanel active">
+        <div class="grid-2">
+          <div>
+            <div class="panel-title">Image Upload</div>
+            <div id="vqaUploadZone" class="upload-zone">
+              <span class="upload-icon">🔭</span>
+              <div class="upload-title">Upload clinical image</div>
+              <div class="upload-sub">JPG, JPEG, PNG</div>
+              <input type="file" id="vqaFile" accept=".jpg,.jpeg,.png" onchange="handleVqaFile(event)">
+            </div>
+            <div id="vqaPreview" class="upload-preview" style="display:none; margin-top:1rem;">
+              <img id="vqaImg" src="" alt="VQA Preview">
+              <div class="preview-overlay" id="vqaPreviewLabel">—</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel-title">Clinical Question</div>
+            <div class="field">
+              <label>Question</label>
+              <textarea id="vqaQuestion" rows="3">Is this skin lesion benign or malignant? Describe its characteristics.</textarea>
+            </div>
+            <button class="btn btn-primary" id="vqaRunBtn" onclick="runVqa()" disabled>
+              ▶ Analyze Image
+            </button>
+            <div class="divider"></div>
+
+            <div id="vqaIdle" style="color:var(--text-dim);font-size:.8rem;">
+              Upload an image and submit a question to begin analysis.
+            </div>
+            <div id="vqaLoading" class="spinner-wrap" style="display:none">
+              <div class="spinner"></div>
+              <div class="spinner-text">GPT-4o Vision processing…</div>
+            </div>
+            <div id="vqaResult" style="display:none">
+              <div class="answer-panel" id="vqaAnswer"></div>
+              <div class="metric-row" style="margin-top:.8rem">
+                <div class="metric-mini">
+                  <div class="metric-mini-val" id="vqaConfVal">—</div>
+                  <div class="metric-mini-lbl">Confidence</div>
+                </div>
+                <div class="metric-mini">
+                  <div class="metric-mini-val" id="vqaMsVal">—</div>
+                  <div class="metric-mini-lbl">Latency</div>
+                </div>
+                <div class="metric-mini">
+                  <div class="metric-mini-val" style="font-size:.68rem" id="vqaModelVal">—</div>
+                  <div class="metric-mini-lbl">Model</div>
+                </div>
+              </div>
+              <div class="disclaimer">
+                Model output for research purposes only. Not a substitute for clinical evaluation.
+              </div>
+            </div>
+            <div id="vqaError" class="error-card" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Classification -->
+      <div id="subpanel-text" class="subpanel">
+        <div class="grid-2">
+          <div>
+            <div class="panel-title">Patient Query</div>
+            <div class="field">
+              <label>Clinical Context / Symptoms</label>
+              <textarea id="hfText" rows="6" placeholder="e.g. Patient presents with dry cough, low-grade fever and progressive fatigue for 5 days…"></textarea>
+            </div>
+            <button class="btn btn-primary" id="hfRunBtn" onclick="runHfText()">▶ Classify</button>
+          </div>
+
+          <div>
+            <div class="panel-title">Top Predictions</div>
+            <div id="hfIdle" style="color:var(--text-dim);font-size:.8rem;">
+              Enter a clinical description to classify potential pathologies.
+            </div>
+            <div id="hfLoading" class="spinner-wrap" style="display:none">
+              <div class="spinner"></div>
+              <div class="spinner-text">Zero-shot classification…</div>
+            </div>
+            <div id="hfResult" style="display:none">
+              <div id="hfBars"></div>
+              <div id="hfMeta" style="font-size:.7rem;font-family:var(--mono);color:var(--text-dim);margin-top:.8rem;"></div>
+              <div class="disclaimer">
+                Zero-shot classification — indicative only. Clinical confirmation required.
+              </div>
+            </div>
+            <div id="hfError" class="error-card" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3: RAG ══ -->
+  <div id="section-rag" class="section">
+    <div class="page-header">
+      <div class="page-title">
+        Clinical Knowledge Base
+        <span class="tag">RAG · GPT-3.5 · FAISS</span>
+      </div>
+      <div class="page-desc">Retrieval-augmented generation over curated medical documents</div>
+    </div>
+
+    <div class="content">
+      <div class="grid-2">
+
+        <div>
+          <div class="panel-title">Patient Query</div>
+          <div class="field">
+            <label>Clinical Question</label>
+            <textarea id="ragQuery" rows="6" placeholder="e.g. What are the diagnostic criteria for type 2 diabetes?&#10;How should I manage stage 1 hypertension in a 55-year-old?"></textarea>
+          </div>
+          <div style="display:flex;gap:.6rem">
+            <button class="btn btn-primary" id="ragRunBtn" onclick="runRag()">▶ Query Knowledge Base</button>
+            <button class="btn btn-ghost" onclick="clearRag()">Clear</button>
+          </div>
+
+          <div id="ragSources" style="display:none;margin-top:1.5rem">
+            <div class="panel-title">Retrieved Sources</div>
+            <div class="sources-row" id="ragSourceChips"></div>
+            <div id="ragExecTime" style="font-size:.68rem;font-family:var(--mono);color:var(--text-dim);margin-top:.5rem"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel-title">Generated Answer</div>
+          <div id="ragIdle" style="color:var(--text-dim);font-size:.8rem;padding:3rem 0;text-align:center;line-height:1.8;">
+            Submit a clinical question to retrieve<br>evidence-based answers.
+          </div>
+          <div id="ragLoading" class="spinner-wrap" style="display:none">
+            <div class="spinner"></div>
+            <div class="spinner-text">Retrieving & generating…</div>
+          </div>
+          <div id="ragAnswer" style="display:none">
+            <div class="answer-panel" id="ragAnswerText"></div>
+            <div class="disclaimer">
+              Generated from curated medical knowledge base. Always verify with current clinical guidelines and a qualified physician.
+            </div>
+          </div>
+          <div id="ragError" class="error-card" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+/* ════════════════════════════════════════════
+   CONFIG
+════════════════════════════════════════════ */
+const BACKEND = 'http://localhost:8000';
+
+/* ════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+function navigate(el, section) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-' + section).classList.add('active');
+}
+
+/* ════════════════════════════════════════════
+   SUB-TABS
+════════════════════════════════════════════ */
+function switchSubtab(el, panel) {
+  el.closest('.subtab-bar').querySelectorAll('.subtab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.subpanel').forEach(p => p.classList.remove('active'));
+  document.getElementById('subpanel-' + panel).classList.add('active');
+}
+
+/* ════════════════════════════════════════════
+   BACKEND HEALTH CHECK
+════════════════════════════════════════════ */
+async function checkHealth() {
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+  const meta = document.getElementById('statusMeta');
+  try {
+    const r = await fetch(BACKEND + '/health', { signal: AbortSignal.timeout(3000) });
+    const d = await r.json();
+    dot.className = 'status-dot online';
+    txt.textContent = 'OPERATIONAL';
+    meta.textContent =
+      `CNN: ${d.cnn_model_ready ? '✓' : '✗'}  ·  RAG: ${d.rag_index_ready ? '✓' : '✗'}  ·  ${d.llm_model}`;
+  } catch {
+    dot.className = 'status-dot offline';
+    txt.textContent = 'OFFLINE';
+    meta.textContent = 'Start backend on :8000';
+  }
+}
+checkHealth();
+setInterval(checkHealth, 10000);
+
+/* ════════════════════════════════════════════
+   DRAG & DROP HELPERS
+════════════════════════════════════════════ */
+function setupDragDrop(zone, inputId, cb) {
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) cb(file);
+  });
+}
+
+/* ════════════════════════════════════════════
+   MODULE 1 — CNN
+════════════════════════════════════════════ */
+let cnnFileObj = null;
+
+setupDragDrop(
+  document.getElementById('cnnUploadZone'),
+  'cnnFile',
+  f => { cnnFileObj = f; showCnnPreview(f); }
+);
+
+function handleCnnFile(e) {
+  const f = e.target.files[0];
+  if (!f) return;
+  cnnFileObj = f;
+  showCnnPreview(f);
+}
+
+function showCnnPreview(f) {
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('cnnImg').src = ev.target.result;
+    document.getElementById('cnnPreviewLabel').textContent = f.name + ' · ' + (f.size / 1024).toFixed(1) + ' KB';
+    document.getElementById('cnnUploadZone').style.display = 'none';
+    document.getElementById('cnnPreview').style.display = 'block';
+    document.getElementById('cnnRunBtn').disabled = false;
+  };
+  reader.readAsDataURL(f);
+  document.getElementById('cnnIdle').style.display = 'none';
+  document.getElementById('cnnResult').classList.add('hidden');
+  document.getElementById('cnnError').style.display = 'none';
+}
+
+function resetCnn() {
+  cnnFileObj = null;
+  document.getElementById('cnnFile').value = '';
+  document.getElementById('cnnUploadZone').style.display = 'block';
+  document.getElementById('cnnPreview').style.display = 'none';
+  document.getElementById('cnnRunBtn').disabled = true;
+  document.getElementById('cnnResult').classList.add('hidden');
+  document.getElementById('cnnError').style.display = 'none';
+  document.getElementById('cnnIdle').style.display = 'block';
+}
+
+async function runCnn() {
+  if (!cnnFileObj) return;
+  document.getElementById('cnnLoading').style.display = 'flex';
+  document.getElementById('cnnResult').classList.add('hidden');
+  document.getElementById('cnnError').style.display = 'none';
+  document.getElementById('cnnIdle').style.display = 'none';
+
+  const form = new FormData();
+  form.append('file', cnnFileObj);
+
+  try {
+    const r = await fetch(BACKEND + '/cnn/predict', { method:'POST', body:form });
+    const d = await r.json();
+    document.getElementById('cnnLoading').style.display = 'none';
+    if (!r.ok) throw new Error(d.detail || 'Server error');
+
+    const pred = d.prediction || '—';
+    const conf = Math.round((d.confidence || 0) * 100);
+    const isMalin = pred === 'malin';
+
+    document.getElementById('cnnPredText').textContent = pred.toUpperCase();
+
+    const badge = document.getElementById('cnnBadge');
+    badge.textContent = isMalin ? '● MALIGNANT' : '● BENIGN';
+    badge.className = 'badge ' + (isMalin ? 'badge-danger' : 'badge-success');
+
+    const bar = document.getElementById('cnnConfBar');
+    bar.style.background = isMalin ? 'var(--danger)' : 'var(--success)';
+    setTimeout(() => bar.style.width = conf + '%', 50);
+
+    document.getElementById('cnnConfVal').textContent = conf + '%';
+    document.getElementById('cnnRawVal').textContent = (d.raw_score || 0).toFixed(3);
+    document.getElementById('cnnMsVal').textContent = (d.execution_ms || 0) + 'ms';
+
+    document.getElementById('cnnResult').classList.remove('hidden');
+  } catch(err) {
+    document.getElementById('cnnLoading').style.display = 'none';
+    const el = document.getElementById('cnnError');
+    el.textContent = '✕ ' + err.message;
+    el.style.display = 'block';
+  }
+}
+
+/* ════════════════════════════════════════════
+   MODULE 2a — VQA
+════════════════════════════════════════════ */
+let vqaFileObj = null;
+
+setupDragDrop(
+  document.getElementById('vqaUploadZone'),
+  'vqaFile',
+  f => { vqaFileObj = f; showVqaPreview(f); }
+);
+
+function handleVqaFile(e) {
+  const f = e.target.files[0];
+  if (!f) return;
+  vqaFileObj = f;
+  showVqaPreview(f);
+}
+
+function showVqaPreview(f) {
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('vqaImg').src = ev.target.result;
+    document.getElementById('vqaPreviewLabel').textContent = f.name;
+    document.getElementById('vqaUploadZone').style.display = 'none';
+    document.getElementById('vqaPreview').style.display = 'block';
+    document.getElementById('vqaRunBtn').disabled = false;
+  };
+  reader.readAsDataURL(f);
+}
+
+async function runVqa() {
+  if (!vqaFileObj) return;
+  const q = document.getElementById('vqaQuestion').value.trim();
+  document.getElementById('vqaLoading').style.display = 'flex';
+  document.getElementById('vqaResult').style.display = 'none';
+  document.getElementById('vqaError').style.display = 'none';
+  document.getElementById('vqaIdle').style.display = 'none';
+
+  const form = new FormData();
+  form.append('file', vqaFileObj);
+  const params = new URLSearchParams({ question: q });
+
+  try {
+    const r = await fetch(BACKEND + '/hf/analyze?' + params, { method:'POST', body:form });
+    const d = await r.json();
+    document.getElementById('vqaLoading').style.display = 'none';
+    if (!r.ok) throw new Error(d.detail || 'Server error');
+
+    document.getElementById('vqaAnswer').textContent = d.answer || '—';
+    document.getElementById('vqaConfVal').textContent = Math.round((d.confidence||0)*100) + '%';
+    document.getElementById('vqaMsVal').textContent = (d.execution_ms||0) + 'ms';
+    document.getElementById('vqaModelVal').textContent = d.model || '—';
+    document.getElementById('vqaResult').style.display = 'block';
+  } catch(err) {
+    document.getElementById('vqaLoading').style.display = 'none';
+    const el = document.getElementById('vqaError');
+    el.textContent = '✕ ' + err.message;
+    el.style.display = 'block';
+  }
+}
+
+/* ════════════════════════════════════════════
+   MODULE 2b — TEXT CLASSIFICATION
+════════════════════════════════════════════ */
+const ACCENT_COLORS = ['var(--accent)','var(--accent2)','#f59e0b'];
+
+async function runHfText() {
+  const text = document.getElementById('hfText').value.trim();
+  if (!text) return;
+  document.getElementById('hfLoading').style.display = 'flex';
+  document.getElementById('hfResult').style.display = 'none';
+  document.getElementById('hfError').style.display = 'none';
+  document.getElementById('hfIdle').style.display = 'none';
+
+  try {
+    const r = await fetch(BACKEND + '/hf/chat', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ text })
+    });
+    const d = await r.json();
+    document.getElementById('hfLoading').style.display = 'none';
+    if (!r.ok) throw new Error(d.detail || 'Server error');
+
+    const barsEl = document.getElementById('hfBars');
+    barsEl.innerHTML = '';
+    (d.top_predictions || []).forEach((p, i) => {
+      const pct = Math.round(p.score * 100);
+      const color = ACCENT_COLORS[i] || 'var(--accent)';
+      const row = document.createElement('div');
+      row.className = 'pred-row';
+      row.style.animationDelay = (i * 0.08) + 's';
+      row.innerHTML = `
+        <div class="pred-row-header">
+          <span class="pred-label">${p.label}</span>
+          <span class="pred-pct">${pct}%</span>
+        </div>
+        <div class="conf-track">
+          <div class="conf-fill" id="hf-bar-${i}" style="background:${color}"></div>
+        </div>
+      `;
+      barsEl.appendChild(row);
+      setTimeout(() => {
+        document.getElementById('hf-bar-' + i).style.width = pct + '%';
+      }, 80 + i * 60);
+    });
+    document.getElementById('hfMeta').textContent = (d.model || '') + ' · ' + (d.execution_ms || 0) + 'ms';
+    document.getElementById('hfResult').style.display = 'block';
+  } catch(err) {
+    document.getElementById('hfLoading').style.display = 'none';
+    const el = document.getElementById('hfError');
+    el.textContent = '✕ ' + err.message;
+    el.style.display = 'block';
+  }
+}
+
+/* ════════════════════════════════════════════
+   MODULE 3 — RAG
+════════════════════════════════════════════ */
+async function runRag() {
+  const text = document.getElementById('ragQuery').value.trim();
+  if (!text) return;
+  document.getElementById('ragLoading').style.display = 'flex';
+  document.getElementById('ragAnswer').style.display = 'none';
+  document.getElementById('ragSources').style.display = 'none';
+  document.getElementById('ragError').style.display = 'none';
+  document.getElementById('ragIdle').style.display = 'none';
+
+  try {
+    const r = await fetch(BACKEND + '/rag/query', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ text })
+    });
+    const d = await r.json();
+    document.getElementById('ragLoading').style.display = 'none';
+    if (!r.ok) throw new Error(d.detail || 'Server error');
+
+    document.getElementById('ragAnswerText').textContent = d.answer || 'No answer returned.';
+    document.getElementById('ragAnswer').style.display = 'block';
+
+    const chips = document.getElementById('ragSourceChips');
+    chips.innerHTML = '';
+    (d.sources || []).forEach(src => {
+      const el = document.createElement('div');
+      el.className = 'source-pill';
+      el.textContent = src.title + ' — ' + Math.round(src.relevance * 100) + '%';
+      chips.appendChild(el);
+    });
+    document.getElementById('ragExecTime').textContent = (d.execution_ms || 0) + ' ms';
+    document.getElementById('ragSources').style.display = 'block';
+  } catch(err) {
+    document.getElementById('ragLoading').style.display = 'none';
+    const el = document.getElementById('ragError');
+    el.textContent = '✕ ' + err.message;
+    el.style.display = 'block';
+  }
+}
+
+function clearRag() {
+  document.getElementById('ragQuery').value = '';
+  document.getElementById('ragAnswer').style.display = 'none';
+  document.getElementById('ragSources').style.display = 'none';
+  document.getElementById('ragError').style.display = 'none';
+  document.getElementById('ragIdle').style.display = 'block';
+}
+</script>
+</body>
+</html>

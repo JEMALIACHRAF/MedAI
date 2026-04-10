@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedAI Clinical — AI-Powered Dermatology Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --bg:          #05070d;
+  --surface:     #0b0f1a;
+  --surface2:    #111827;
+  --border:      #1e2740;
+  --border2:     #2a3554;
+  --text:        #c8d6f0;
+  --text-dim:    #5d7098;
+  --text-bright: #eef2ff;
+  --accent:      #06b6d4;
+  --accent-glow: rgba(6,182,212,.15);
+  --accent2:     #818cf8;
+  --danger:      #f43f5e;
+  --success:     #10b981;
+  --font:        'Sora', sans-serif;
+  --mono:        'DM Mono', monospace;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth; font-size:16px }
+body {
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width:5px }
+::-webkit-scrollbar-track { background:transparent }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px }
+
+/* ═══════════════════════════════════════
+   NOISE OVERLAY
+═══════════════════════════════════════ */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  opacity:.5;
+}
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+nav {
+  position:fixed; top:0; left:0; right:0;
+  z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 3.5rem;
+  height:60px;
+  background:rgba(5,7,13,.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo {
+  font-family:var(--mono);
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--text-bright);
+  letter-spacing:.05em;
+  display:flex; align-items:center; gap:.55rem;
+  text-decoration:none;
+}
+.nav-logo .dot {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.4;transform:scale(.8)}
+}
+.nav-links {
+  display:flex; align-items:center; gap:2rem;
+}
+.nav-links a {
+  font-size:.78rem;
+  color:var(--text-dim);
+  text-decoration:none;
+  transition:color .18s;
+}
+.nav-links a:hover { color:var(--text) }
+.nav-cta {
+  display:flex; align-items:center; gap:.7rem;
+}
+.btn {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.48rem 1.1rem;
+  border-radius:7px;
+  font-family:var(--font);
+  font-size:.78rem;
+  font-weight:500;
+  cursor:pointer;
+  text-decoration:none;
+  border:1px solid transparent;
+  transition:all .18s ease;
+}
+.btn-ghost {
+  border-color:var(--border2);
+  color:var(--text-dim);
+  background:transparent;
+}
+.btn-ghost:hover { border-color:var(--text-dim); color:var(--text) }
+.btn-primary {
+  background:var(--accent);
+  color:#06080d;
+  border-color:var(--accent);
+  font-weight:600;
+}
+.btn-primary:hover { background:#22d3ee }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  position:relative;
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding:8rem 2rem 5rem;
+  overflow:hidden;
+}
+
+/* Mesh gradient background */
+.hero-bg {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+}
+.orb {
+  position:absolute;
+  border-radius:50%;
+  filter:blur(100px);
+}
+.orb-1 {
+  width:600px; height:600px;
+  top:-15%; left:50%; transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(6,182,212,.1),transparent 70%);
+  animation:drift1 8s ease-in-out infinite alternate;
+}
+.orb-2 {
+  width:400px; height:400px;
+  bottom:5%; left:10%;
+  background:radial-gradient(circle,rgba(129,140,248,.08),transparent 70%);
+  animation:drift2 10s ease-in-out infinite alternate;
+}
+.orb-3 {
+  width:350px; height:350px;
+  top:20%; right:5%;
+  background:radial-gradient(circle,rgba(244,63,94,.05),transparent 70%);
+  animation:drift3 12s ease-in-out infinite alternate;
+}
+@keyframes drift1{to{transform:translateX(-45%) translateY(20px)}}
+@keyframes drift2{to{transform:translate(30px,-40px)}}
+@keyframes drift3{to{transform:translate(-20px,30px)}}
+
+/* Grid lines */
+.hero-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(30,39,64,.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,39,64,.4) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
+}
+
+.hero-inner { position:relative; z-index:1; max-width:800px; }
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:var(--mono);
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent);
+  background:rgba(6,182,212,.08);
+  border:1px solid rgba(6,182,212,.25);
+  padding:.35rem .85rem;
+  border-radius:20px;
+  margin-bottom:2rem;
+  animation:fadeUp .6s ease both;
+}
+.hero-eyebrow .blink {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--accent);
+  animation:pulse 1.5s ease-in-out infinite;
+}
+
+.hero-title {
+  font-size:clamp(2.6rem, 6vw, 4.2rem);
+  font-weight:800;
+  color:var(--text-bright);
+  line-height:1.1;
+  letter-spacing:-.025em;
+  animation:fadeUp .65s ease .1s both;
+}
+.hero-title .grad {
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 60%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub {
+  margin:1.5rem auto 0;
+  max-width:560px;
+  font-size:1rem;
+  font-weight:300;
+  color:var(--text-dim);
+  line-height:1.75;
+  animation:fadeUp .65s ease .2s both;
+}
+.hero-actions {
+  margin-top:2.5rem;
+  display:flex; align-items:center; justify-content:center; gap:.75rem;
+  animation:fadeUp .65s ease .3s both;
+}
+.btn-hero {
+  padding:.7rem 1.8rem;
+  font-size:.88rem;
+}
+.hero-caption {
+  margin-top:1.4rem;
+  font-size:.68rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  letter-spacing:.06em;
+  animation:fadeUp .65s ease .4s both;
+}
+
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── Scroll indicator ── */
+.scroll-hint {
+  position:absolute;
+  bottom:2.5rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  font-size:.65rem; font-family:var(--mono);
+  color:var(--text-dim); letter-spacing:.1em;
+  animation:fadeUp .65s ease .6s both;
+  z-index:1;
+}
+.scroll-arrow {
+  width:18px; height:28px;
+  border:1.5px solid var(--border2);
+  border-radius:10px;
+  position:relative;
+}
+.scroll-arrow::after {
+  content:'';
+  position:absolute;
+  top:5px; left:50%; transform:translateX(-50%);
+  width:3px; height:6px;
+  background:var(--accent);
+  border-radius:2px;
+  animation:scrollBob 1.6s ease-in-out infinite;
+}
+@keyframes scrollBob {
+  0%,100%{top:5px;opacity:1}
+  50%{top:13px;opacity:.3}
+}
+
+/* ═══════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════ */
+.stats-bar {
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+  padding:1.8rem 0;
+}
+.stats-inner {
+  max-width:900px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.stat-item {
+  text-align:center;
+  padding:0 2rem;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child { border-right:none }
+.stat-val {
+  font-size:2rem;
+  font-weight:700;
+  color:var(--text-bright);
+  letter-spacing:-.02em;
+  line-height:1;
+}
+.stat-val span { color:var(--accent) }
+.stat-label {
+  font-size:.7rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-top:.4rem;
+}
+
+/* ═══════════════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════════════ */
+section {
+  position:relative;
+  padding:7rem 2rem;
+  z-index:1;
+}
+.section-label {
+  font-size:.65rem;
+  font-family:var(--mono);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1rem;
+  text-align:center;
+}
+.section-title {
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:700;
+  color:var(--text-bright);
+  letter-spacing:-.02em;
+  line-height:1.2;
+  text-align:center;
+}
+.section-sub {
+  max-width:520px; margin:.9rem auto 0;
+  font-size:.88rem;
+  color:var(--text-dim);
+  line-height:1.75;
+  text-align:center;
+  font-weight:300;
+}
+
+/* ═══════════════════════════════════════
+   FEATURE CARDS
+═══════════════════════════════════════ */
+.features { background:var(--bg) }
+.features-grid {
+  max-width:1100px; margin:4rem auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+}
+.feat-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:2rem 1.8rem;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .25s, transform .25s;
+  cursor:default;
+}
+.feat-card::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%, var(--card-glow,rgba(6,182,212,.07)), transparent 70%);
+  pointer-events:none;
+  transition:opacity .3s;
+  opacity:0;
+}
+.feat-card:hover { border-color:var(--border2); transform:translateY(-3px) }
+.feat-card:hover::before { opacity:1 }
+.feat-card.card-cnn   { --card-glow: rgba(6,182,212,.1) }
+.feat-card.card-mm    { --card-glow: rgba(129,140,248,.1) }
+.feat-card.card-rag   { --card-glow: rgba(16,185,129,.08) }
+
+.feat-icon {
+  width:42px; height:42px;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem;
+  margin-bottom:1.4rem;
+  border:1px solid var(--border2);
+  background:var(--surface2);
+}
+.feat-card.card-cnn .feat-icon  { border-color:rgba(6,182,212,.35);  background:rgba(6,182,212,.08) }
+.feat-card.card-mm  .feat-icon  { border-color:rgba(129,140,248,.35); background:rgba(129,140,248,.08) }
+.feat-card.card-rag .feat-icon  { border-color:rgba(16,185,129,.35);  background:rgba(16,185,129,.08) }
+
+.feat-tag {
+  font-size:.6rem;
+  font-family:var(--mono);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:.5rem;
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:4px;
+}
+.feat-card.card-cnn .feat-tag  { color:var(--accent);  background:rgba(6,182,212,.08);  border:1px solid rgba(6,182,212,.2) }
+.feat-card.card-mm  .feat-tag  { color:var(--accent2); background:rgba(129,140,248,.08); border:1px solid rgba(129,140,248,.2) }
+.feat-card.card-rag .feat-tag  { color:var(--success); background:rgba(16,185,129,.08);  border:1px solid rgba(16,185,129,.2) }
+
+.feat-title {
+  font-size:1.05rem;
+  font-weight:600;
+  color:var(--text-bright);
+  margin-bottom:.6rem;
+}
+.feat-desc {
+  font-size:.8rem;
+  color:var(--text-dim);
+  line-height:1.7;
+  font-weight:300;
+}
+.feat-list {
+  list-style:none;
+  margin-top:1.2rem;
+  display:flex; flex-direction:column; gap:.4rem;
+}
+.feat-list li {
+  font-size:.75rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  display:flex; align-items:center; gap:.5rem;
+}
+.feat-list li::before {
+  content:'→';
+  font-size:.65rem;
+  color:var(--accent);
+  flex-shrink:0;
+}
+.feat-card.card-mm  .feat-list li::before { color:var(--accent2) }
+.feat-card.card-rag .feat-list li::before { color:var(--success) }
+
+/* ═══════════════════════════════════════
+   PIPELINE
+═══════════════════════════════════════ */
+.pipeline { background:var(--surface) }
+.pipeline-grid {
+  max-width:900px; margin:4rem auto 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  position:relative;
+}
+.pipeline-grid::before {
+  content:'';
+  position:absolute;
+  top:28px; left:12%; right:12%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--border2) 20%, var(--accent) 50%, var(--border2) 80%, transparent);
+}
+.pipe-step {
+  text-align:center;
+  padding:0 1rem;
+  position:relative;
+}
+.pipe-num {
+  width:56px; height:56px;
+  border-radius:50%;
+  border:1.5px solid var(--border2);
+  background:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+  margin:0 auto 1.2rem;
+  position:relative;
+  z-index:1;
+  transition:border-color .2s;
+}
+.pipe-step:hover .pipe-num {
+  border-color:var(--accent);
+  box-shadow:0 0 16px rgba(6,182,212,.2);
+}
+.pipe-step-title {
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--text-bright);
+  margin-bottom:.4rem;
+}
+.pipe-step-desc {
+  font-size:.7rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  line-height:1.5;
+}
+
+/* ═══════════════════════════════════════
+   TECH STACK
+═══════════════════════════════════════ */
+.techstack { background:var(--bg) }
+.tech-grid {
+  max-width:800px; margin:3rem auto 0;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:.65rem;
+}
+.tech-pill {
+  font-size:.72rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:.38rem .9rem;
+  transition:all .18s;
+}
+.tech-pill:hover {
+  border-color:var(--border2);
+  color:var(--text);
+}
+.tech-pill.hl {
+  color:var(--accent);
+  background:rgba(6,182,212,.06);
+  border-color:rgba(6,182,212,.25);
+}
+
+/* ═══════════════════════════════════════
+   CTA BLOCK
+═══════════════════════════════════════ */
+.cta-block {
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.cta-inner {
+  max-width:620px; margin:0 auto;
+  text-align:center;
+}
+.cta-inner .section-title { margin-bottom:1rem }
+.cta-actions {
+  display:flex; justify-content:center; gap:.75rem;
+  margin-top:2rem;
+}
+.cta-note {
+  font-size:.68rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+  margin-top:1rem;
+  letter-spacing:.04em;
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  border-top:1px solid var(--border);
+  padding:2.5rem 3.5rem;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.footer-brand {
+  font-family:var(--mono);
+  font-size:.78rem;
+  color:var(--text-dim);
+  display:flex; align-items:center; gap:.5rem;
+}
+.footer-brand strong { color:var(--text-bright) }
+.footer-links {
+  display:flex; gap:1.5rem;
+}
+.footer-links a {
+  font-size:.72rem;
+  color:var(--text-dim);
+  text-decoration:none;
+  transition:color .18s;
+}
+.footer-links a:hover { color:var(--text) }
+.footer-right {
+  font-size:.68rem;
+  font-family:var(--mono);
+  color:var(--text-dim);
+}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+.reveal {
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal-delay-1 { transition-delay:.1s }
+.reveal-delay-2 { transition-delay:.2s }
+.reveal-delay-3 { transition-delay:.3s }
+
+/* ═══════════════════════════════════════
+   DISCLAIMER BANNER
+═══════════════════════════════════════ */
+.disclaimer-banner {
+  background:rgba(245,158,11,.05);
+  border:1px solid rgba(245,158,11,.2);
+  border-radius:8px;
+  max-width:700px; margin:3rem auto 0;
+  padding:.75rem 1.2rem;
+  font-size:.7rem;
+  font-family:var(--mono);
+  color:rgba(245,158,11,.8);
+  text-align:center;
+  line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAVBAR ════════════════ -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="dot"></div>
+    MedAI Clinical
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#pipeline">How it works</a>
+    <a href="#stack">Technology</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn btn-ghost" href="frontend.html">Documentation</a>
+    <a class="btn btn-primary" href="frontend.html">Launch Platform →</a>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<div class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="blink"></div>
+      Clinical AI Research Platform · v2.0
+    </div>
+
+    <h1 class="hero-title">
+      AI-Powered<br>
+      <span class="grad">Dermatology Intelligence</span>
+    </h1>
+
+    <p class="hero-sub">
+      Classify skin lesions, analyze clinical images with GPT-4o Vision,
+      and query a curated medical knowledge base — all in one platform.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-hero" href="frontend.html">
+        ▶&nbsp; Launch Platform
+      </a>
+      <a class="btn btn-ghost btn-hero" href="#features">
+        Explore Features
+      </a>
+    </div>
+
+    <div class="hero-caption">
+      FastAPI · TensorFlow · GPT-4o · FAISS · HuggingFace
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-arrow"></div>
+    SCROLL
+  </div>
+</div>
+
+<!-- ════════════════ STATS ════════════════ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-val">3<span>×</span></div>
+      <div class="stat-label">AI Modules</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-val">HAM<span>10K</span></div>
+      <div class="stat-label">Training Dataset</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-val">&lt;<span>2s</span></div>
+      <div class="stat-label">Avg. Inference</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FEATURES ════════════════ -->
+<section class="features" id="features">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title reveal">Three Modules,<br>One Platform</h2>
+  <p class="section-sub reveal reveal-delay-1">
+    Each module targets a specific clinical AI task — from binary lesion classification to retrieval-augmented medical Q&A.
+  </p>
+
+  <div class="features-grid">
+    <div class="feat-card card-cnn reveal">
+      <div class="feat-icon">🔬</div>
+      <div class="feat-tag">Module 01</div>
+      <div class="feat-title">Lesion Classification</div>
+      <div class="feat-desc">
+        CNN trained on the HAM10000 dermoscopy dataset performs binary classification of skin lesions with confidence scoring.
+      </div>
+      <ul class="feat-list">
+        <li>Benign / Malignant detection</li>
+        <li>Confidence percentage output</li>
+        <li>128×128 CNN inference</li>
+        <li>Sub-second latency on CPU</li>
+      </ul>
+    </div>
+
+    <div class="feat-card card-mm reveal reveal-delay-1">
+      <div class="feat-icon">🧠</div>
+      <div class="feat-tag">Module 02</div>
+      <div class="feat-title">Multimodal Analysis</div>
+      <div class="feat-desc">
+        GPT-4o Vision interprets clinical images with free-form clinical questions. Zero-shot classification for symptom text.
+      </div>
+      <ul class="feat-list">
+        <li>GPT-4o Vision (high detail)</li>
+        <li>Clinical VQA interface</li>
+        <li>Zero-shot text classification</li>
+        <li>9-label pathology taxonomy</li>
+      </ul>
+    </div>
+
+    <div class="feat-card card-rag reveal reveal-delay-2">
+      <div class="feat-icon">📚</div>
+      <div class="feat-tag">Module 03</div>
+      <div class="feat-title">Clinical Knowledge RAG</div>
+      <div class="feat-desc">
+        Retrieval-augmented generation over curated medical documents — grounded, source-cited answers to clinical queries.
+      </div>
+      <ul class="feat-list">
+        <li>FAISS semantic retrieval</li>
+        <li>all-MiniLM-L6-v2 embeddings</li>
+        <li>GPT-3.5 generation</li>
+        <li>Source relevance scoring</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer-banner reveal">
+    ⚠&nbsp; This platform is intended for research and educational purposes only. Outputs do not constitute clinical diagnoses. Always consult a licensed healthcare professional.
+  </div>
+</section>
+
+<!-- ════════════════ PIPELINE ════════════════ -->
+<section class="pipeline" id="pipeline">
+  <div class="section-label">Architecture</div>
+  <h2 class="section-title reveal">How It Works</h2>
+  <p class="section-sub reveal reveal-delay-1">
+    A request flows through four stages — from user input to a grounded, explainable clinical output.
+  </p>
+
+  <div class="pipeline-grid reveal">
+    <div class="pipe-step">
+      <div class="pipe-num">🖼</div>
+      <div class="pipe-step-title">Input</div>
+      <div class="pipe-step-desc">Image or clinical text uploaded via drag-and-drop interface</div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-num">⚙</div>
+      <div class="pipe-step-title">Routing</div>
+      <div class="pipe-step-desc">FastAPI dispatches to the appropriate AI module endpoint</div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-num">🤖</div>
+      <div class="pipe-step-title">Inference</div>
+      <div class="pipe-step-desc">CNN, GPT-4o Vision, or RAG pipeline processes the query</div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-num">📊</div>
+      <div class="pipe-step-title">Output</div>
+      <div class="pipe-step-desc">Prediction, confidence score and sources returned in real-time</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TECH STACK ════════════════ -->
+<section class="techstack" id="stack">
+  <div class="section-label">Technology</div>
+  <h2 class="section-title reveal">Built on the<br>Modern AI Stack</h2>
+  <p class="section-sub reveal reveal-delay-1">
+    Open-source models, state-of-the-art APIs, and production-grade infrastructure.
+  </p>
+
+  <div class="tech-grid reveal">
+    <div class="tech-pill hl">FastAPI</div>
+    <div class="tech-pill hl">TensorFlow / Keras</div>
+    <div class="tech-pill hl">OpenAI GPT-4o</div>
+    <div class="tech-pill hl">FAISS</div>
+    <div class="tech-pill">HuggingFace Transformers</div>
+    <div class="tech-pill">Salesforce BLIP VQA</div>
+    <div class="tech-pill">sentence-transformers</div>
+    <div class="tech-pill hl">Facebook BART MNLI</div>
+    <div class="tech-pill">HAM10000 Dataset</div>
+    <div class="tech-pill">all-MiniLM-L6-v2</div>
+    <div class="tech-pill">NumPy · Pillow</div>
+    <div class="tech-pill">Uvicorn ASGI</div>
+    <div class="tech-pill hl">Streamlit → HTML/JS</div>
+    <div class="tech-pill">Pydantic v2</div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA ════════════════ -->
+<section class="cta-block">
+  <div class="cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title reveal">Ready to run inference?</h2>
+    <p class="section-sub reveal reveal-delay-1">
+      Start the FastAPI backend on port 8000, then open the platform to begin analyzing dermoscopy images.
+    </p>
+    <div class="cta-actions reveal">
+      <a class="btn btn-primary btn-hero" href="frontend.html">▶&nbsp; Open Platform</a>
+      <a class="btn btn-ghost btn-hero" href="#">View Source</a>
+    </div>
+    <div class="cta-note reveal reveal-delay-1">
+      Requires Python 3.10+ · uvicorn backend:app --reload
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <strong>MedAI Clinical</strong>&nbsp;— Intelligence Platform v2.0
+  </div>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#stack">Stack</a>
+    <a href="frontend.html">Platform</a>
+  </div>
+  <div class="footer-right">
+    Research use only · Not a medical device
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════ */
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  }),
+  { threshold: 0.12 }
+);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ═══════════════════════════════
+   NAVBAR SCROLL SHADOW
+═══════════════════════════════ */
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.borderBottomColor = window.scrollY > 20 ? 'rgba(30,39,64,.8)' : 'var(--border)';
+});
+</script>
+</body>
+</html>
