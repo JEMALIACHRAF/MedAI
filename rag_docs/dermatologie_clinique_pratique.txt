@@ -1,0 +1,158 @@
+DERMATOLOGIE CLINIQUE — GUIDE PRATIQUE
+Source: EDF (European Dermatology Forum) Guidelines + ISIC Clinical Recommendations 2024
+========================================================================
+
+1. EXAMEN DERMATOLOGIQUE SYSTÉMATIQUE
+---------------------------------------
+Inspection corps entier : éclairage uniforme, patient en sous-vêtements
+Ordre d'examen : cuir chevelu → visage → cou → tronc → membres → périnée → pieds
+Palpation : consistance, adhérence plans profonds, chaleur, sensibilité
+Dermoscopie : systématique pour toute lésion pigmentée ≥5mm
+
+Terminologie de base :
+Lésion élémentaire primitive :
+- Macule : modification couleur sans relief (érythémateuse, pigmentée, dépigmentée)
+- Papule : relief solide <1cm
+- Nodule : relief solide >1cm, profondeur dermique/hypodermique
+- Vésicule : collection liquidienne <5mm
+- Bulle : collection liquidienne >5mm
+- Pustule : collection purulente
+- Plaque : relief >2cm, superficie
+
+Lésion élémentaire secondaire :
+- Squame : desquamation épidermique
+- Croûte : sérosité ou sang desséché
+- Ulcération : perte de substance jusqu'au derme
+- Erosion : perte de substance superficielle (épiderme)
+- Lichénification : épaississement + accentuation du quadrillage cutané (grattage chronique)
+- Cicatrice : remplacement tissu normal par tissu fibreux
+
+2. DERMOSCOPIE — PRINCIPE ET ALGORITHMES
+-------------------------------------------
+Dermoscopie : examen non invasif avec éclairage polarisé ou contact (gel ou alcool)
+Grossissement ×10-100. Améliore sensibilité diagnostic mélanome : 49→89%, spécificité 55→81%
+
+Algorithme à 2 étapes :
+Étape 1 : lésion mélanocytaire ? OUI/NON
+Critères mélanocytaires : réseau pigmenté, agrégats de globules, stries rayonnantes,
+pseudo-pods, voile bleu homogène (nævus bleu)
+Si NON mélanocytaire : aller vers diagnostic alternatif (BCC, KS, angiome, DF)
+
+Étape 2 (si mélanocytaire) : bénin ou malin ?
+Méthode ABCD de Stolz :
+A = Asymétrie (0-2 points), B = Bord (0-8 pts), C = Couleur (1-6 pts), D = Structures (1-5 pts)
+Score TDS = 1.3A + 0.1B + 0.5C + 0.5D
+<4.75 : bénin, 4.75-5.45 : indéterminé, >5.45 : malin
+
+Méthode des 7 points de Glasgow :
+Critères majeurs (2 pts chacun) : réseau pigmenté atypique, voile bleu-blanc, vaisseaux atypiques
+Critères mineurs (1 pt chacun) : stries irrégulières, pigmentation irrégulière, points irréguliers, régression
+Score ≥3 : malin
+
+Structures dermoscopiques importantes :
+- Réseau pigmenté TYPIQUE : lignes fines, mailles régulières, couleur homogène brun → bénin
+- Réseau pigmenté ATYPIQUE : lignes épaisses, mailles irrégulières, points d'ébauche → mélanome
+- Globules/points RÉGULIERS : symétriques, même taille, même distribution → bénin
+- Globules/points IRRÉGULIERS : asymétriques, agrégats focaux → mélanome
+- Voile bleu-blanc : zone de régression ou invasion dermique profonde → mélanome
+- Vaisseaux typiques BCC : arborisations brillantes, teinte rouge vif
+- Kyste milia + comedons : kératose séborrhéique
+
+3. DIAGNOSTICS DIFFÉRENTIELS EN DERMOSCOPIE
+---------------------------------------------
+KÉRATOSE SÉBORRHÉIQUE (KS) :
+- Comédons ouverts (follicules bloqués, aspect "trou" brun-noir)
+- Kystes de milia (blancs, ronds, brillants)
+- Surface : terne, parsemée, aspect "gyriforme"
+- Bords : nets, bien délimités
+- Vaisseaux : pseudo-boucles en épingle à cheveux entourées de halo blanc
+- "Stuck-on appearance" à l'examen clinique
+
+CARCINOME BASOCELLULAIRE (BCC) :
+- ABSENCE de réseau pigmenté (critère d'exclusion mélanocytaire)
+- Vaisseaux arborescents : pathognomoniques, rouge vif, grands vaisseaux ramifiés
+- Ovales/oves bleutées : amas de cellules tumorales dans le derme
+- Larges nids gris-bleus
+- Ulcération centrale (BCC ulcéré, "rongeur")
+- Roue de charrette : radiations de couleur à partir d'un centre
+- BCC pigmenté : peut ressembler au mélanome, biopsie nécessaire si doute
+
+DERMATOFIBROME (DF) :
+- Pseudo-réseau délicat central avec pigmentation légère
+- Anneau pigmenté périphérique net (pâle)
+- Signe de la fossette : dépression à la pression latérale (pathognomonique clinique)
+- Vaisseaux variables
+
+ANGIOME / HÉMANGIOME :
+- Lacunes rouge vif à rouge-bordeaux, bien délimitées
+- Fond blanchâtre entre les lacunes
+- Pas de réseau pigmenté
+- Hémangiome thrombosé : lacunes bleu-noir → peut simuler mélanome nodulaire
+
+NÆVUS SPITZ :
+- Enfant/adolescent (pic d'incidence)
+- Starburst pattern : pseudo-pods et stries rayonnantes SYMÉTRIQUES (forme bénigne)
+- Pattern globulaire purement de globules
+- Différent de mélanome : symétrie des structures
+- Biopsie recommandée si doute (aspect acral, régression, âge adulte)
+
+LENTIGO SOLAIRE vs MÉLANOME DE DUBREUILH :
+- Lentigo bénin : pseudo-réseau diffus, points gris finement distribués, bords nets
+- Mélanome de Dubreuilh (LMM) : réseau atypique, bords irréguliers, régression extensive,
+  progressif sur années. Sur visage, sujet âgé.
+  Dermoscopie : zones grises, oves gris-bleu, vaisseaux cibles
+
+4. INFECTIONS CUTANÉES FRÉQUENTES
+------------------------------------
+Impétigo :
+- Streptocoque A ou Staphylocoque aureus
+- Croûtes mélicériques jaune-miel (impétigo crouteux) ou bulles (bulleux)
+- Enfant 2-6 ans, péri-orificiel
+- Traitement : Fucidine topique, Mupirocine; si étendu : amoxicilline orale 7j
+
+Zona (Herpes zoster) :
+- Réactivation VZV dans ganglion sensitif
+- Prodrome : douleur brûlante unilatérale 2-3 jours avant éruption
+- Éruption : vésicules sur fond érythémateux en bande (dermatome), unilatéral
+- Traitement : Valaciclovir 1g ×3/j, 7 jours (dans les 72h si possible)
+- Complications : douleurs post-zostériennes (névralgie), zona ophtalmique (→ ophtalmo urgent)
+- Vaccination : Shingrix (adjuvanté) : 2 doses, recommandé ≥65 ans, immunodéprimés ≥50 ans
+
+Teigne (Dermatophytose du cuir chevelu) :
+- Enfant, contact contaminant (chien, chat, enfants)
+- Placards d'alopécie squameux, cheveux cassés
+- Culture mycologique sur squames/cheveux (confirmation)
+- Traitement systémique obligatoire : Griséofulvine 10-20mg/kg/j, 6-8 semaines
+
+Candidose :
+- Intertriginous (plis) : érythème brillant, fissures, pustules satellites
+- Traitement : antifongique topique (Éconazole, Miconazole), traitement cause (humidité)
+- Orale (muguet) : Fluconazole 150mg dose unique ou nystantine topique
+
+5. PHOTOPROTECTION ET PHOTOCARCINOGENÈSE
+------------------------------------------
+Rayonnements UV :
+- UVB (290-320nm) : érythème, coups de soleil, ADN direct, mélanome, BCC
+- UVA (320-400nm) : pénétration profonde, photo-vieillissement, mélanome indirect
+- UVC (<290nm) : filtrés par couche d'ozone
+
+Index UV (IUV) :
+0-2 : faible, 3-5 : modéré, 6-7 : élevé, 8-10 : très élevé, ≥11 : extrême
+Protection recommandée si IUV ≥3
+
+Types de filtres solaires :
+- Physiques (minéraux) : TiO2, ZnO — réflexion UV, bien tolérés peaux sensibles/nourrissons
+- Chimiques : absorption UV, nécessitent application 20 min avant exposition
+- Combinés : la plupart des produits commerciaux
+
+SPF (Sun Protection Factor) :
+- SPF30 : filtre 97% UVB, SPF50 : filtre 98%, SPF50+ : filtre >98%
+- SPF ne protège pas contre UVA — chercher label "large spectre" ou UVA dans cercle
+
+Règles de photoprotection :
+1. Éviter exposition solaire 12h-16h (pic UV)
+2. Vêtements couvrants, chapeau (indice UPF>50), lunettes UV400
+3. Crème SPF50+ : appliquer 20 min avant, renouveler toutes 2h et après baignade
+4. Quantité suffisante : 2mg/cm² (1 cuillère à café visage, 30-35ml corps adulte)
+5. Enfant <1 an : éviter tout soleil direct
+6. Cabines UV (solarium) : interdits aux mineurs, fortement déconseillés

@@ -1,0 +1,159 @@
+INFECTIONS RESPIRATOIRES — GUIDE CLINIQUE COMPLET
+Source: WHO Clinical Guidelines + SPILF / SPLF Recommandations 2024
+========================================================================
+
+1. GRIPPE SAISONNIÈRE (INFLUENZA)
+-----------------------------------
+Agent : virus Influenza A (H1N1, H3N2), B (Victoria, Yamagata), C (bénin)
+Transmission : gouttelettes, aérosols, contact indirect. Contagiosité J-1 à J+5
+Incubation : 1-4 jours
+
+Tableau clinique typique :
+- Début brutal, fièvre ≥38.5°C (souvent >39-40°C)
+- Myalgies intenses ("douleurs osseuses"), céphalées, frissons
+- Asthénie profonde, anorexie
+- Toux sèche, obstruction nasale, pharyngite
+- Enfant : otite, laryngite, myosite, convulsions fébriles possibles
+
+Formes graves — critères d'hospitalisation :
+- Polypnée (FR >30/min), SpO2 <94%
+- Instabilité hémodynamique (PAS <90 mmHg)
+- Confusion, trouble de conscience
+- Signes de déshydratation sévère
+- Complication : pneumonie grippale, co-infection bactérienne (pneumocoque, staph)
+
+Populations à risque (formes graves) :
+Grossesse (tout trimestre), âge ≥65 ans, nourrisson <6 mois, obésité (IMC ≥40),
+diabète, cardiopathie, BPCO, immunodépression, IRC
+
+Diagnostic :
+- Clinique suffisant en période épidémique (surveillance Réseau Sentinelles)
+- TDR grippe (sensibilité 50-70%, spécificité >95%) si résultat change la prise en charge
+- RT-PCR nasopharyngée : gold standard, si hospitalisation ou contexte nosocomial
+
+Traitement :
+- Formes légères : symptomatique (paracétamol, hydratation, repos 5-7 jours)
+- NB : AINS déconseillés (risque complications, fasciite nécrosante post-grippale)
+- Antiviraux : oseltamivir (Tamiflu) 75mg ×2/j, 5 jours
+  Indications : hospitalisation, formes graves, personnes à risque dans les 48h
+  Zanamivir inhalé si résistance à l'oseltamivir (rare H275Y)
+  Baloxavir marboxil (dose unique) : alternative, disponible >12 ans
+
+Prévention :
+- Vaccination annuelle (octobre-novembre) : recommandée à tous >65 ans, femmes enceintes,
+  comorbidités, soignants, entourage nourrissons
+- Efficacité vaccin : 40-60% en prévention infection, >80% formes sévères
+- Mesures barrières : masque FFP2 si risque, lavage mains, ventilation
+- Antibioprophylaxie non recommandée
+
+2. PNEUMONIE COMMUNAUTAIRE (PAC)
+-----------------------------------
+Définition : infection parenchyme pulmonaire acquise en dehors d'un établissement de santé
+
+Étiologies selon âge et contexte :
+- Adulte jeune sans comorbidité : Streptococcus pneumoniae (30-40%), Mycoplasma pneumoniae,
+  Chlamydia pneumoniae (pneumopathies atypiques)
+- Adulte avec comorbidités : pneumocoque, BGN (Klebsiella), Legionella (voyage, spa)
+- Sujet âgé en EHPAD : pneumocoque, BGN, anaérobies (inhalation)
+- Post-grippale : Staphylococcus aureus (surinfection grave), pneumocoque
+
+Tableau clinique :
+- Fièvre (>38.5°C), frissons, sueurs
+- Toux (sèche initialement puis productive, expectorations purulentes)
+- Douleur thoracique de type pleural (si pleurésie associée)
+- Dyspnée (tachypnée)
+- Pneumopathie atypique : début progressif, toux sèche, céphalées, myalgies (syndrome pseudogrippal)
+- Auscultation : crépitants localisés, souffle tubaire (condensation), matité
+
+Examens diagnostiques :
+- Radiographie thoracique face : condensation alvéolaire (systématisée = bactérien,
+  infiltrats diffus bilatéraux = atypique/viral)
+- NFS : hyperleucocytose à PNN (bactérien), normale ou lymphocytose (viral/atypique)
+- CRP : élévée (>100 mg/L si bactérien sévère)
+- Procalcitonine : guide antibiothérapie (>0.25 = bactérien probable)
+- ECBC (examen cytobactériologique des crachats) : si hospitalisation
+- Hémocultures ×2 : si frissons, sepsis, forme sévère
+- Antigénurie pneumocoque et Légionelle : si hospitalisation ou forme sévère
+
+Scores de gravité — décision d'hospitalisation :
+CRB-65 (en ville) :
+  C = Confusion  R = Fréquence Respiratoire >30/min
+  B = Blood pressure PAS<90 ou PAD≤60  65 = âge ≥65 ans
+  Score 0 : ambulatoire, 1-2 : hospitalisation, 3-4 : USI
+
+PSI (Pneumonia Severity Index) : plus précis, 5 classes, classe >III → hospitalisation
+qSOFA si sepsis suspect : >2 critères → soins intensifs
+
+Antibiothérapie probabiliste :
+PAC légère à modérée, ambulatoire :
+- Amoxicilline 1g ×3/j, 5-7 jours (pneumocoque probable)
+- Si atypique suspectée : Doxycycline 100mg ×2/j OU Clarithromycine 500mg ×2/j
+- Allergie pénicilline : Pristinamycine 1g ×3/j
+
+PAC modérée à sévère, hospitalisée :
+- Amoxicilline-acide clavulanique 1g ×3/j IV + Azithromycine 500mg/j IV (bithérapie)
+- OU C3G (Céftriaxone 2g IV) + macrolide
+- Légionellose : Lévofloxacine 500mg ×2/j IV, 14-21 jours
+
+PAC grave (USI) :
+- Bétalactamine IV + Azithromycine IV (ou fluoroquinolone)
+- MRSA suspecté : Vancomycine ou Linézolide + Céfépime
+
+Durée traitement : 5-7 jours formes légères, 7-10 jours formes sévères, 21 jours Légionelle
+
+Surveillance et réévaluation à 48-72h (apyrexie, amélioration clinique)
+Radiographie à 4-6 semaines (surtout >50 ans : éliminer néoplasie sous-jacente)
+
+3. COVID-19 (SARS-COV-2)
+--------------------------
+Voir aussi recommandations HCSP actualisées
+
+Incubation : 2-14 jours (médiane 5 jours pour Omicron)
+Transmissibilité : aérosols (principale voie), gouttelettes, contact
+
+Tableau clinique :
+- Asymptomatique : 30-40% (Omicron)
+- Forme légère : fièvre, toux sèche, fatigue, céphalées, myalgies, anosmie/agueusie
+  (plus rare avec variants Omicron)
+- Forme modérée : pneumonie sans hypoxie
+- Forme sévère : pneumonie avec SpO2 <94% ou PaO2/FiO2 <300
+- Forme critique : SDRA, défaillance multi-organes, choc septique
+
+Facteurs de risque de forme sévère :
+âge >50 ans (risque croît exponentiellement), obésité (IMC>30), diabète,
+cardiopathie, cancer actif, immunodépression, BPCO, grossesse 3ème trimestre,
+Down syndrome, insuffisance rénale chronique, non vacciné
+
+Tests diagnostiques :
+- RT-PCR nasopharyngée : gold standard (sensibilité 87-98%)
+- Autotests (TDR antigénique) : sensibilité 70-85% (J1-J5 symptômes)
+- Sérologie : intérêt épidémiologique uniquement
+
+Traitement :
+Forme légère ambulatoire, patient à risque :
+- Nirmatrelvir/ritonavir (Paxlovid®) : dans les 5 jours, réduction hospitalisation 89%
+  CI : insuffisance hépatique sévère, nombreuses interactions médicamenteuses
+- Remdesivir : 3 jours IV ambulatoire (alternative Paxlovid)
+
+Forme sévère hospitalisée :
+- Dexaméthasone 6mg/j, 10 jours : réduction mortalité 17-35% (RECOVERY trial)
+- Baricitinib (anti-JAK) : si O2 sans ventilation
+- Tocilizumab (anti-IL6) : si inflammation marquée (CRP >75 mg/L), sous O2
+- Anticoagulation préventive (HBPM) systématique si hospitalisé
+- Anticoagulation curative si TVP/EP documentée
+
+Long COVID (Post-COVID syndrome) :
+Définition OMS : symptômes persistants ou nouveaux >12 semaines après infection aiguë
+Prévalence : 10-30% selon études (moins fréquent avec Omicron et vaccination)
+Symptômes principaux : fatigue profonde, dyspnée, troubles cognitifs ("brain fog"),
+tachycardie positionnelle (POTS), douleurs, troubles du sommeil
+Prise en charge : pluridisciplinaire, rééducation respiratoire si dyspnée résiduelle,
+suivi cardio, neuro, rhumato selon symptômes
+
+4. BRONCHITE AIGUË DE L'ADULTE
+--------------------------------
+Étiologie virale dans 90% des cas
+Antibiotiques NON recommandés systématiquement
+Traitement : symptomatique (paracétamol, hydratation), mucolytiques si expectorations épaisses
+Durée : 2-3 semaines, toux résiduelle possible 4-6 semaines
+Antibiothérapie si : terrain fragile (BPCO, IC), surinfection bactérienne (purulence, fièvre >8j)

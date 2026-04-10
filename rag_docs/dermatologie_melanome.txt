@@ -1,0 +1,113 @@
+MELANOME CUTANÉ — GUIDE CLINIQUE COMPLET
+Source: WHO Skin Cancer Guidelines + NCCN Melanoma Guidelines v2.2024
+========================================================================
+
+1. DÉFINITION ET ÉPIDÉMIOLOGIE
+-------------------------------
+Le mélanome cutané est une tumeur maligne issue de la transformation néoplasique des mélanocytes.
+Incidence mondiale : ~325 000 nouveaux cas/an (GLOBOCAN 2023).
+Mortalité : ~57 000 décès/an. Survie globale à 5 ans : 93% si détecté au stade local, 30% si métastatique.
+Âge médian au diagnostic : 65 ans. Légère prédominance masculine.
+Populations à risque : phototype I-II (Fitzpatrick), exposition UV chronique ou coups de soleil intenses
+avant 18 ans, antécédents familiaux (gène CDKN2A), nombre de nævus >50, immunodépression.
+
+2. CLASSIFICATION HISTOLOGIQUE
+--------------------------------
+- Mélanome à extension superficielle (SSM) : 70% des cas. Croissance horizontale initiale.
+- Mélanome nodulaire (NM) : 15-20%. Croissance verticale d'emblée. Pronostic moins favorable.
+- Mélanome de Dubreuilh (LMM) : zones photo-exposées, personnes âgées, évolution lente.
+- Mélanome acrolentigineux (ALM) : paumes, plantes, ongles. Plus fréquent chez sujets à peau foncée.
+- Mélanome uvéal : oeil (uvée). Traitement spécifique.
+- Mélanome des muqueuses : rare, pronostic sombre.
+
+3. CRITÈRES ABCDE (DÉTECTION PRÉCOCE)
+---------------------------------------
+A — Asymétrie : une moitié ne reflète pas l'autre
+B — Bords : irréguliers, mal définis, encochés, polycycliques
+C — Couleur : hétérogène (brun, noir, rouge, blanc, bleu dans une même lésion)
+D — Diamètre : >6 mm (mais mélanomes précoces peuvent être plus petits)
+E — Évolution : toute modification récente (taille, couleur, épaisseur, saignement, prurit)
+
+Critère supplémentaire : "Ugly duckling sign" — lésion différente des autres nævus du patient.
+
+4. DERMOSCOPIE — CRITÈRES DIAGNOSTIQUES
+-----------------------------------------
+Structures évocatrices de mélanome :
+- Réseau pigmenté atypique (irrégulier, épaissi)
+- Points et globules irrégulièrement distribués
+- Régression (zones blanches cicatricielles + zones bleues/grises)
+- Voile bleu-blanc (zone blanche laiteuse recouvrant pigment bleu-gris)
+- Vaisseaux atypiques (irréguliers, polymorphes)
+- Chromatophores
+
+Score 7 points de Glasgow : sensibilité 79%, spécificité 93% pour mélanome vs nævus bénin.
+
+5. STAGING — CLASSIFICATION AJCC 8ÈME ÉDITION
+------------------------------------------------
+Stade 0  : Mélanome in situ (Tis N0 M0)
+Stade I  : T1a-T2a, N0, M0 — épaisseur ≤2mm
+Stade II : T2b-T4b, N0, M0 — épaisseur >2mm ou ulcération
+Stade III: Tout T, N1-N3, M0 — atteinte ganglionnaire régionale
+Stade IV : Tout T, tout N, M1 — métastases à distance
+
+Indice de Breslow (épaisseur en mm) : principal facteur pronostique indépendant.
+Ulcération : facteur de mauvais pronostic indépendant (upstage automatique).
+Indice mitotique >1/mm² : facteur de mauvais pronostic.
+
+6. BILAN INITIAL
+-----------------
+- Exérèse diagnostique complète (marge 2mm) avec analyse histologique obligatoire
+- Ganglion sentinelle : si Breslow ≥0.8mm ou ulcération (stade IB et plus)
+- TEP-TDM : stades III et IV
+- IRM cérébrale : si suspicion métastases cérébrales
+- LDH : marqueur pronostique stade IV
+- Bilan mutationnel BRAF V600 : si stade III/IV (guide thérapeutique)
+
+7. TRAITEMENT SELON LE STADE
+------------------------------
+Stade 0-IA :
+- Exérèse chirurgicale avec marges adaptées (5mm stade 0, 1cm stade I)
+- Surveillance clinique et dermoscopique
+
+Stade IB-IIA :
+- Exérèse + marges 1-2cm selon épaisseur
+- Ganglion sentinelle systématique
+- Pas d'immunothérapie adjuvante en France (hors essai clinique)
+
+Stade IIB-IIC :
+- Exérèse + marges 2cm
+- Pembrolizumab adjuvant (anti-PD1) : réduction risque rechute 35% (KEYNOTE-716)
+
+Stade III :
+- Exérèse + curage ganglionnaire si ganglion sentinelle positif
+- Immunothérapie adjuvante : Pembrolizumab ou Nivolumab (1 an)
+- Si BRAF muté : thérapie ciblée adjuvante dabrafénib + tramétinib (1 an)
+
+Stade IV (métastatique) :
+- Immunothérapie 1ère ligne : Nivolumab + Ipilimumab (combiné) ou Pembrolizumab en monothérapie
+- Si BRAF V600 muté : thérapie ciblée dabrafénib + tramétinib (réponse rapide, résistance secondaire fréquente)
+- Radiothérapie : métastases cérébrales symptomatiques
+- Essais cliniques : TIL (tumour-infiltrating lymphocytes), vaccins néoantigènes, CAR-T
+
+8. SURVEILLANCE POST-TRAITEMENT
+---------------------------------
+Stade I : examen clinique tous les 6 mois pendant 5 ans, puis annuel
+Stade II-III : examen clinique + imagerie (TDM) tous les 3-6 mois pendant 3 ans, puis annuel
+Stade IV : imagerie tous les 3 mois pendant 2 ans
+
+Éducation patient : auto-examen mensuel, protection solaire (SPF50+), éviction UV artificiels.
+
+9. MÉLANOME ET DERMOSCOPIE — DIAGNOSTICS DIFFÉRENTIELS
+---------------------------------------------------------
+- Nævus bénin : structure régulière, réseau harmonieux, pas de régression
+- Carcinome basocellulaire pigmenté : vaisseaux en roue de charrette, absence de réseau
+- Kératose séborrhéique : comédons, milia, surface terne, bords nets
+- Hémangiome : lacunes rouges homogènes
+- Dermatofibrome : pseudo-réseau central + anneau périphérique délicat
+
+10. PRÉVENTION
+---------------
+- Protection solaire : éviter exposition 12h-16h, SPF50+ renouvelé toutes 2h, vêtements protecteurs
+- Dépistage : INCa recommande examen cutané complet annuel si facteurs de risque
+- Nevus congénitaux géants (>20cm) : surveillance spécialisée dès l'enfance
+- Photoprotection enfant : priorité absolue avant 18 ans

@@ -1,0 +1,182 @@
+PRÉVENTION CARDIOVASCULAIRE ET MÉDECINE GÉNÉRALE
+Source: ESC Prevention Guidelines 2021 + HAS Recommandations + WHO 2023
+========================================================================
+
+1. RISQUE CARDIOVASCULAIRE GLOBAL
+-----------------------------------
+Principales maladies cardiovasculaires (MCV) :
+Coronaropathie, AVC, artériopathie oblitérante des membres inférieurs (AOMI),
+insuffisance cardiaque — 1ère cause de mortalité mondiale (32% des décès, OMS 2023)
+
+Facteurs de risque cardiovasculaire (FRCV) modifiables :
+- Tabagisme (risque relatif ×2-4 pour coronaropathie)
+- HTA (systolique ↑10 mmHg → risque MCV ↑17%)
+- Dyslipidémie (LDL-c : relation causale directe, continue)
+- Diabète (risque MCV ×2-4)
+- Obésité abdominale (tour de taille >94cm homme, >80cm femme)
+- Sédentarité
+- Alimentation déséquilibrée
+- Stress psychosocial chronique, dépression
+- Pollution atmosphérique (PM2.5)
+- Consommation d'alcool excessive
+
+FRCV non modifiables :
+- Âge (hommes >45 ans, femmes >55 ans)
+- Sexe masculin
+- Antécédents familiaux MCV précoces (<55 ans homme, <65 ans femme premier degré)
+- Ménopause précoce (<40 ans)
+
+Calcul du risque : Score SCORE2 (Europe) — disponible sur ESC PREVENT app
+Catégories de risque à 10 ans (événements CV fatals + non fatals) :
+- Faible : <5%
+- Modéré : 5-10%
+- Élevé : 10-20%
+- Très élevé : >20% OU ATCD MCV, diabète avec AOC, IRC sévère, LDL>4.9 g/L
+
+Marqueurs de risque supplémentaires (modifient le traitement) :
+- Coronaropathie sub-clinique (score calcique CAC >100)
+- Rapport ABI (index tibio-brachial) <0.9 = AOMI infra-clinique
+- Microalbuminurie, protéinurie
+- Hypertrophie ventriculaire gauche (ETT)
+- Épaisseur intima-média carotidienne (EIM) augmentée
+
+2. DYSLIPIDÉMIES
+-----------------
+Définitions :
+- LDL-c élevé : principal facteur de risque athéromateux (relation log-linéaire)
+- HDL-c bas : <0.40 g/L homme, <0.50 g/L femme → facteur indépendant
+- Triglycérides élevés : >1.50 g/L → risque pancréatite si >5 g/L, risque CV si 1.5-5 g/L
+- Non-HDL-cholestérol : CT - HDL (meilleur reflet de l'athérogénicité que LDL seul)
+
+Objectifs LDL-c selon risque CV (ESC 2021) :
+- Risque faible : <1.16 g/L
+- Risque modéré : <1.00 g/L
+- Risque élevé : <0.70 g/L ET réduction ≥50% vs valeur initiale
+- Risque très élevé : <0.55 g/L ET réduction ≥50%
+- Post-IDM à très haut risque : <0.40 g/L (cible optionnelle)
+
+Traitement :
+Mesures diététiques (réduction LDL max 15-25%) :
+- Réduire graisses saturées (<10% calories totales) et trans
+- Augmenter fibres solubles (psyllium, pectines, avoine), phytostérols
+- Activité physique aérobie (augmente HDL)
+
+Statines (1ère ligne, réduction LDL 30-55% selon intensité) :
+- Haute intensité : Rosuvastatine 20-40mg, Atorvastatine 40-80mg
+- Intensité modérée : Simvastatine 20-40mg, Pravastatine 40mg
+- Effets : myopathie (rhabdomyolyse rare), hépatotoxicité (surveillance ASAT/ALAT)
+- CI absolues : grossesse, allaitement, hépatopathie active
+
+Association si cible non atteinte :
+- Ézétimibe +10-20% réduction (mécanisme : inhibition absorption intestinale cholestérol)
+- Inhibiteurs PCSK9 (Évolocumab, Alirocumab) : -50-70%, injectable mensuel/bimestriel
+  Indications : hypercholestérolémie familiale, très haut risque, statines insuffisantes
+
+3. TABAGISME
+-------------
+Composants délétères : nicotine (addiction), CO (hypoxie), HAP, métaux lourds, irritants
+Effets cardiovasculaires : dysfonction endothéliale, athérosclérose accélérée, thrombose,
+spasme coronaire, arythmies. Délai normalisation risque : 2-5 ans après arrêt.
+
+Bénéfices de l'arrêt à long terme :
+- Risque IDM normalisé à celui d'un non-fumeur en 10-15 ans
+- Réduction risque cancer poumon 50% à 10 ans
+- Réduction BPCO (ralentissement déclin VEMS)
+
+Prise en charge du sevrage :
+Évaluation dépendance : test de Fagerström (>5 = forte dépendance)
+Entretien motivationnel, théorie des stades de Prochaska
+
+Thérapeutiques de substitution nicotinique (TSN) :
+- Patchs, gommes, inhaleur, pastilles — multiplicité des formes si dépendance forte
+- Remboursé SS : 150€/an (sur prescription ou non)
+
+Médicaments :
+- Varénicline (Champix) : agoniste partiel récepteurs nicotiniques, efficacité ×2 vs TSN
+  Arrêt commercialisation temporaire (nitrosamines), reproche fin 2023
+- Bupropion : antidépresseur, 2ème ligne, interactions médicamenteuses
+
+Cigarette électronique : aide au sevrage possible (données insuffisantes long terme),
+non remboursée, déconseillée aux non-fumeurs et mineurs
+
+4. OBÉSITÉ
+-----------
+Classification IMC (OMS) :
+- Normal : 18.5-24.9 kg/m²
+- Surpoids : 25-29.9 kg/m²
+- Obésité grade I : 30-34.9 kg/m²
+- Obésité grade II : 35-39.9 kg/m²
+- Obésité grade III (morbide) : ≥40 kg/m²
+
+Tour de taille (risque CV accru) : >94 cm homme, >80 cm femme
+Obésité abdominale : >102 cm homme, >88 cm femme
+
+Complications de l'obésité :
+CV : HTA, dyslipidémie, coronaropathie, FA, IC
+Métaboliques : DT2, NASH/cirrhose, syndrome métabolique
+Cancers : sein (post-ménopause), endomètre, côlon, rein, pancréas, foie
+Orthopédiques : gonarthrose, lombalgies
+Apnée du sommeil, asthme, RGO, incontinence urinaire
+Dépression, discrimination, altération qualité de vie
+
+Traitement :
+- Régime hypocalorique (déficit 500-1000 kcal/j) + accompagnement diététique
+- Activité physique ≥150-300 min/sem + renforcement musculaire
+- TCC (thérapies cognitivo-comportementales)
+- Médicaments : Orlistat (inhibiteur lipases, peu toléré), Sémaglutide 2.4mg (Wegovy) -15% poids
+- Chirurgie bariatrique : IMC≥40, ou ≥35 avec comorbidités, après 2 ans d'échec traitement
+  Techniques : sleeve gastrectomie (référence), bypass gastrique (plus efficace, plus risqué)
+
+5. PRÉVENTION PRIMAIRE — RECOMMANDATIONS PRATIQUES
+----------------------------------------------------
+Alimentation :
+Régime méditerranéen (niveau de preuve le plus élevé) :
+- Huile d'olive vierge extra : 4 cuillères à soupe/jour
+- Légumes : ≥2 portions/repas, fruits : 2-3/jour
+- Légumineuses : ≥3 fois/semaine
+- Poissons gras : ≥2 fois/semaine (oméga-3, DHA, EPA)
+- Noix/amandes : 30g/jour
+- Réduire : viandes rouges (<1/semaine), charcuterie (<1/semaine), sucres ajoutés
+
+Activité physique (PNNS, OMS 2020) :
+- Adulte : 150-300 min/semaine modérée OU 75-150 min intense
+- Renforcement musculaire : ≥2 fois/semaine
+- Limiter sédentarité prolongée (se lever toutes les 30-60 min)
+- Personne âgée ≥65 ans : ajouter exercices équilibre (prévention chutes)
+
+Alcool :
+- Seuil basse consommation OMS : ≤10 verres/semaine (max 2/jour)
+- Pas de seuil "sans risque", tendance recommandations vers 0
+
+Sommeil :
+- Adulte : 7-9h/nuit
+- Manque sommeil : risque HTA, diabète, obésité, dépression
+
+6. DÉPISTAGES RECOMMANDÉS EN MÉDECINE GÉNÉRALE
+-------------------------------------------------
+Cancer colorectal (HAS) :
+- 50-74 ans, risque moyen : test immunologique fécal (TIF) tous les 2 ans
+- Risque élevé (ATCD familial) : coloscopie dès 45 ans ou 5 ans avant cas index
+
+Cancer du sein :
+- Mammographie : 50-74 ans tous les 2 ans (dépistage organisé)
+- Risque élevé (BRCA1/2, ATCD familial) : IRM annuelle dès 30 ans + suivi oncogénétique
+
+Cancer du col utérin :
+- Frottis cervico-vaginal : 25-65 ans (test HPV dès 30 ans tous les 5 ans)
+- Vaccination HPV : filles ET garçons 11-14 ans (rattrapage jusqu'à 19 ans)
+
+Cancer de la prostate :
+- PSA : pas de dépistage systématique recommandé (HAS), décision partagée >50 ans
+- Si symptômes urinaires : PSA + TR (toucher rectal)
+
+Anévrisme aorte abdominale :
+- Échographie abdominale unique : homme ≥65 ans, fumeur ou ex-fumeur
+
+Glaucome : pas de dépistage systématique, mais FO si antécédents familiaux, HTO
+
+Ostéoporose :
+- Ostéodensitométrie : femme ménopausée avec FRCV, hommes >70 ans avec FRCV
+- Score FRAX : évalue risque fracture à 10 ans, guide décision thérapeutique
+
+Dépression : questionnaire PHQ-2 systématique si contexte à risque (maladie chronique)

@@ -1,0 +1,100 @@
+LÉSIONS CUTANÉES BÉNIGNES ET MALIGNES — CLASSIFICATION HAM10000
+Source: HAM10000 Dataset (Tschandl et al., Nature Scientific Data 2018)
+       + ISIC Archive Clinical Guidelines
+========================================================================
+
+1. PRÉSENTATION DU DATASET HAM10000
+--------------------------------------
+HAM10000 ("Human Against Machine with 10000 training images") :
+- 10 015 images dermoscopiques collectées sur 20 ans
+- 7 classes diagnostiques confirmées histologiquement ou par consensus expert
+- Collecte : Vienne (Autriche) + Brisbane (Australie)
+- Résolution images : variable, normalisée à 600×450 px minimum
+- Distribution : déséquilibrée (nævus = classe majoritaire ~67%)
+
+Encodage binaire utilisé dans le modèle CNN :
+- BÉNIN : nv (nævus mélanocytaire), df (dermatofibrome), vasc (lésions vasculaires), bkl (kératose bénigne)
+- MALIN : mel (mélanome), bcc (carcinome basocellulaire), akiec (kératose actinique / carcinome in situ)
+
+2. CLASSES DÉTAILLÉES
+-----------------------
+
+2.1 NV — NÆVUS MÉLANOCYTAIRE (bénin, 6705 images = 67%)
+Définition : prolifération bénigne de mélanocytes
+Aspect clinique : macule ou papule brun clair à brun foncé, homogène, bords réguliers
+Dermoscopie : réseau pigmenté régulier, globules symétriques, pas de régression
+Variants : nævus de Spitz (enfant), nævus bleu (profond, bleuté), nævus de Reed
+Conduite : surveillance annuelle, exérèse si critères ABCDE ou demande patient
+Risque maligne : <1% transformation en mélanome
+
+2.2 MEL — MÉLANOME (malin, 1113 images = 11.1%)
+Définition : tumeur maligne des mélanocytes (voir document dermatologie_melanome.txt)
+Dermoscopie : réseau atypique, voile bleu-blanc, régression, vaisseaux polymorphes
+Urgence : exérèse diagnostique rapide, bilan d'extension
+Pronostic dépend de l'indice de Breslow et présence d'ulcération
+
+2.3 BKL — KÉRATOSE BÉNIGNE (bénin, 1099 images = 11%)
+Inclut : kératose séborrhéique, lentigo solaire, kératose lichénoïde plane
+Aspect : plaque brune à surface rugueuse, clivable, "posée sur la peau"
+Dermoscopie : comédons ouverts, kystes de milia, surface terne, bords nets
+Conduite : abstention thérapeutique, cryothérapie si gène esthétique
+Risque : aucun potentiel malin intrinsèque
+
+2.4 BCC — CARCINOME BASOCELLULAIRE (malin, 514 images = 5.1%)
+Définition : tumeur maligne des cellules basales de l'épiderme
+Type le plus fréquent : 75% des cancers cutanés, mais rarement métastatique
+Aspect : perle translucide, télangiectasies, ulcération centrale ("rongeur")
+Dermoscopie : absence de réseau, arborisations vasculaires, ovoides bleutés, roue de charrette
+Localisation : zones photo-exposées (visage, oreilles, cuir chevelu)
+Traitement : exérèse chirurgicale (marge 3-5mm), chirurgie de Mohs si zone critique
+Variantes : superficiel (traitement local possible), nodulaire, infiltrant (plus agressif)
+
+2.5 AKIEC — KÉRATOSE ACTINIQUE / CARCINOME ÉPIDERMOÏDE IN SITU (malin, 327 images = 3.3%)
+Kératose actinique : lésion précancéreuse (CIN1 équivalent cutané)
+Carcinome de Bowen : carcinome épidermoïde in situ (CIN3)
+Aspect : plaque érythémateuse squameuse, rugueuse au toucher, mal délimitée
+Localisation : zones photo-exposées chroniquement (calvitie, mains, avant-bras)
+Dermoscopie : vaisseaux en épingle à cheveux, squames blanches, fond rouge
+Risque transformation invasive : 0.1-10%/an par lésion, cumulatif si multiples
+Traitement :
+  - Lésion unique : cryothérapie (-196°C, 10-20 secondes)
+  - Champ de cancérisation : 5-fluorouracile 5% crème (4 semaines), imiquimod 5%,
+    diclofénac 3% gel (90 jours), thérapie photodynamique (PDT)
+  - Carcinome de Bowen : exérèse chirurgicale ou PDT
+
+2.6 DF — DERMATOFIBROME (bénin, 115 images = 1.1%)
+Définition : prolifération bénigne de fibroblastes dermiques
+Aspect : papule ferme, déprimée à la palpation latérale, brun-rose
+Localisation : membres inférieurs +++, souvent post-piqûre d'insecte
+Dermoscopie : pseudo-réseau délicat central + anneau pigmenté périphérique (pathognomonique)
+Conduite : abstention, exérèse si doute diagnostique ou gène fonctionnelle
+
+2.7 VASC — LÉSIONS VASCULAIRES BÉNIGNES (bénin, 142 images = 1.4%)
+Inclut : angiome, hémangiome, pyogranulome
+Angiome stellaire : vaisseau central avec extensions rayonnantes
+Hémangiome : lacunes rouges à rouge foncé homogènes en dermoscopie
+Pyogranulome : papule rouge saignant facilement (post-traumatique)
+Conduite : surveillance, laser si esthétique, exérèse pyogranulome
+
+3. PERFORMANCES DU MODÈLE CNN SUR HAM10000
+--------------------------------------------
+Architecture de référence (Tschandl 2018) : ResNet50 fine-tuné
+AUC globale : 0.84 sur 7 classes
+AUC mélanome vs reste : 0.91
+AUC BCC vs reste : 0.96
+Limite principale : déséquilibre des classes (nævus surreprésenté)
+
+Architecture utilisée dans ce projet (modèle binaire bénin/malin) :
+Conv2D(32) → MaxPool → Conv2D(64) → MaxPool → Flatten → Dense(64) → Sigmoid
+Input : 128×128×3 (RGB, normalisé 0-1)
+Classes : benin (label 0) / malin (label 1)
+Threshold décision : 0.5 (probabilité sortie sigmoid)
+
+4. RECOMMANDATIONS CLINIQUES POUR L'INTERPRÉTATION
+-----------------------------------------------------
+Le modèle CNN fournit une aide à la décision, NON un diagnostic.
+Sensibilité cible clinique : >95% pour ne pas manquer de mélanomes
+Spécificité acceptable : 70-80% (faux positifs acceptables pour sécurité patient)
+Conduite si prédiction "malin" : dermoscopie par dermatologue + exérèse si doute
+Conduite si prédiction "bénin" : surveillance standard, réévaluation si évolution
+Populations à risque : renforcer surveillance quelle que soit prédiction modèle

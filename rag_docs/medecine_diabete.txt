@@ -1,0 +1,155 @@
+DIABÈTE — GUIDE CLINIQUE COMPLET
+Source: WHO Diabetes Guidelines 2023 + ADA Standards of Care 2024 + HAS Recommandations
+========================================================================
+
+1. DÉFINITION ET CLASSIFICATION
+---------------------------------
+Le diabète est un groupe de maladies métaboliques caractérisées par une hyperglycémie chronique
+résultant d'un défaut de sécrétion d'insuline, d'action de l'insuline, ou des deux.
+
+Types principaux :
+- Diabète de type 1 (DT1) : destruction auto-immune des cellules bêta, insulinopénie absolue
+- Diabète de type 2 (DT2) : insulinorésistance + défaut relatif de sécrétion, 90% des cas
+- Diabète gestationnel (DG) : hyperglycémie découverte durant la grossesse
+- MODY (Maturity-Onset Diabetes of the Young) : formes monogéniques, rares
+- Diabète secondaire : pancréatite chronique, hémochromatose, corticothérapie au long cours
+
+2. CRITÈRES DIAGNOSTIQUES (OMS/ADA 2024)
+------------------------------------------
+L'un des 4 critères suivants suffit (confirmer par 2ème test sauf si symptômes+glycémie>2g/L) :
+
+1. Glycémie à jeun (GAJ) ≥1.26 g/L (7.0 mmol/L) — 2 mesures distinctes
+2. Glycémie 2h après HGPO 75g ≥2.0 g/L (11.1 mmol/L)
+3. HbA1c ≥6.5% (48 mmol/mol)
+4. Glycémie aléatoire ≥2.0 g/L + symptômes (polyurie, polydipsie, amaigrissement)
+
+Pré-diabète :
+- GAJ entre 1.10 et 1.25 g/L (anomalie glycémie à jeun)
+- HbA1c 5.7-6.4% (selon ADA) ou 6.0-6.4% (selon HAS)
+- Glycémie HGPO 2h entre 1.40 et 1.99 g/L
+
+3. PHYSIOPATHOLOGIE DT2
+------------------------
+Résistance à l'insuline (muscle, foie, tissu adipeux) → hyperinsulinisme compensatoire
+→ épuisement progressif cellules bêta → déficit relatif puis absolu en insuline
+Facteurs déclenchants : obésité abdominale, sédentarité, alimentation hypercalorique,
+vieillissement, génétique (héritabilité ~50%).
+Accumulation de lipides ectopiques (foie, pancréas) = lipotoxicité.
+
+4. SYMPTÔMES ET PRÉSENTATION CLINIQUE
+---------------------------------------
+Syndrome cardinal (hyperglycémie franche) :
+- Polyurie (urines abondantes, >3L/j)
+- Polydipsie (soif intense)
+- Polyphagie paradoxale (DT1)
+- Amaigrissement (DT1 surtout)
+- Asthénie profonde
+
+DT2 : souvent asymptomatique, découverte fortuite sur bilan. 
+Signes d'appel : infections récidivantes (mycoses génitales, furoncles), cicatrisation lente,
+troubles de la vision (fluctuation myopie), prurit.
+
+5. BILAN INITIAL AU DIAGNOSTIC
+--------------------------------
+Glycémie à jeun + HbA1c
+Bilan lipidique : LDL-c, HDL-c, triglycérides, cholestérol total
+Créatinine + DFGe (formule CKD-EPI)
+Microalbuminurie sur échantillon (ratio albuminurie/créatininurie)
+ECG de repos
+Fond d'œil (ou rétinographie non mydriatique)
+Pression artérielle + tour de taille + IMC
+TSH (DT1 : bilan auto-immunité thyroïdienne)
+Anticorps anti-GAD, anti-IA2 (si doute DT1 vs DT2)
+Peptide-C (évalue réserve insulinosécrétoire)
+
+6. OBJECTIFS THÉRAPEUTIQUES (HAS 2023)
+----------------------------------------
+HbA1c cible :
+- ≤7% (53 mmol/mol) : population générale DT2
+- ≤6.5% : DT2 récent (<5ans), sans comorbidités, espérance de vie >15ans
+- ≤8% : sujet âgé fragile, comorbidités sévères, hypoglycémies fréquentes
+- ≤9% : sujet très âgé, dépendant, démence
+
+Pression artérielle cible : <130/80 mmHg (si toléré)
+LDL-c cible : <0.7 g/L si haut risque CV, <1.0 g/L sinon
+Triglycérides : <1.5 g/L
+
+7. TRAITEMENT PHARMACOLOGIQUE DT2
+------------------------------------
+Étape 1 — Mesures hygiéno-diététiques (MHD) + Metformine
+Metformine : 500mg-3g/j, 1ère ligne si DFGe >30 ml/min/1.73m²
+Mécanisme : réduction production hépatique glucose, amélioration sensibilité insuline
+Effets secondaires : troubles digestifs (débuter à faible dose), acidose lactique (rare)
+Contre-indication : DFGe <30, insuffisance hépatique, alcoolisme
+
+Étape 2 — Bithérapie si HbA1c non contrôlée après 3 mois
+Choix selon profil patient :
+a) iSGLT2 (gliflozines) : si risque CV élevé, insuffisance cardiaque, néphropathie
+   - Empagliflozine, Dapagliflozine, Canagliflozine
+   - Bénéfice CV et rénoprotecteur démontré (essais EMPA-REG, DAPA-HF)
+   - Risque : infections génitales, acidocétose (rare)
+
+b) GLP-1 agonistes : si obésité, risque CV élevé, pas d'insuline souhaitée
+   - Sémaglutide (Ozempic®), Liraglutide (Victoza®), Dulaglutide (Trulicity®)
+   - Perte de poids significative, bénéfice CV démontré (LEADER, SUSTAIN-6)
+   - Risque : nausées, vomissements, pancréatite (rare)
+
+c) iDPP-4 (gliptines) : si sujet âgé fragile, risque hypoglycémie, bonne tolérance
+   - Sitagliptine, Vildagliptine, Saxagliptine
+   - Neutres sur le poids, bien tolérés
+
+d) Sulfonylurées : économiques mais risque hypoglycémique, prise de poids
+
+Étape 3 — Trithérapie puis insulinothérapie
+Insuline basale : Glargine U100/U300, Dégludec — 1 injection/soir
+Insuline prandiale : si objectif non atteint avec basale seule
+Pompe à insuline : DT1 principalement, DT2 sélectionnés
+
+8. COMPLICATIONS CHRONIQUES
+-----------------------------
+Microangiopathies :
+- Rétinopathie diabétique : 1ère cause de cécité <50 ans dans pays développés
+  Dépistage : fond d'œil/rétinographie annuelle. Traitement : laser, anti-VEGF
+- Néphropathie diabétique : 1ère cause d'insuffisance rénale terminale
+  Stades : hyperfiltration → microalbuminurie → protéinurie → IRC
+  Traitement : IEC/ARA2, iSGLT2, contrôle PA et glycémie
+- Neuropathie diabétique : polyneuropathie sensitive distale (stocking-glove)
+  Symptômes : paresthésies, douleurs neuropathiques, pied insensible
+  Traitement douleur : duloxétine, prégabaline, amitriptyline
+
+Macroangiopathies :
+- Coronaropathie : risque ×2-4. IDM souvent silencieux
+- AVC ischémique : risque ×2-3
+- Artérite des membres inférieurs : risque ×5-10. Pied diabétique +++
+
+Pied diabétique :
+Classification de Wagner (0-5) selon profondeur plaie
+Neuropathie + artériopathie + infection = triade du pied diabétique
+Hospitalisation si Wagner ≥3, ostéite (IRM), amputation en dernier recours
+Prévention : soins podologiques réguliers, chaussures adaptées, auto-surveillance
+
+Autres :
+- NAFLD/NASH : stéatose hépatique, cirrhose possible
+- Dysfonction érectile : neuropathie autonome + vasculaire
+- Syndrome d'apnée du sommeil : fréquent en cas d'obésité associée
+
+9. SURVEILLANCE BIOLOGIQUE
+----------------------------
+Tous les 3 mois : HbA1c, poids, PA, pieds
+Annuellement :
+- Bilan lipidique complet
+- Créatinine + DFGe + microalbuminurie
+- Fond d'œil
+- ECG si risque CV
+- Consultation dentaire
+- Vaccination grippe + pneumocoque
+
+10. ÉDUCATION THÉRAPEUTIQUE (ETP)
+-----------------------------------
+Composantes clés :
+- Autocontrôle glycémique : objectifs glycémiques, technique de mesure
+- Hypoglycémie : signes (sueurs, tremblements, confusion), resucrage (15g glucides rapides)
+- Pied diabétique : inspection quotidienne, soins, chaussures adaptées
+- Alimentation : index glycémique, portions, alcool, hydratation
+- Activité physique : 150 min/semaine, effets sur sensibilité insuline
+- Médicaments : observance, effets secondaires, conduite à tenir

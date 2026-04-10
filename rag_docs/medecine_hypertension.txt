@@ -1,0 +1,195 @@
+HYPERTENSION ARTÉRIELLE — GUIDE CLINIQUE COMPLET
+Source: ESC/ESH Guidelines for Hypertension 2023 + HAS Recommandations 2023
+========================================================================
+
+1. DÉFINITION ET CLASSIFICATION
+---------------------------------
+L'hypertension artérielle (HTA) est définie par une pression artérielle systolique (PAS) ≥140 mmHg
+et/ou une pression artérielle diastolique (PAD) ≥90 mmHg au cabinet médical (mesures répétées).
+
+Classification ESC 2023 :
+- Optimale          : PAS <120 et PAD <80 mmHg
+- Normale           : PAS 120-129 et/ou PAD 80-84 mmHg
+- Normale haute     : PAS 130-139 et/ou PAD 85-89 mmHg
+- HTA Grade 1       : PAS 140-159 et/ou PAD 90-99 mmHg
+- HTA Grade 2       : PAS 160-179 et/ou PAD 100-109 mmHg
+- HTA Grade 3       : PAS ≥180 et/ou PAD ≥110 mmHg
+- HTA systolique isolée : PAS ≥140 et PAD <90 (sujet âgé principalement)
+
+Mesure ambulatoire (MAPA 24h) — valeurs normales :
+- Éveil : <135/85 mmHg
+- Sommeil : <120/70 mmHg
+- Moyenne 24h : <130/80 mmHg
+
+Automesure (HTA masquée, blouse blanche) :
+- Règle des 3 : 3 mesures matin + 3 mesures soir, pendant 3 jours
+- Seuil : >135/85 mmHg considéré comme HTA
+
+2. ÉPIDÉMIOLOGIE
+-----------------
+Prévalence mondiale : ~1.28 milliard d'adultes (OMS 2023)
+France : ~30% des adultes, 50% après 65 ans
+1ère cause de mortalité cardiovasculaire mondiale
+Contrôle tensionnel adéquat : seulement 20-30% des patients traités
+
+3. ÉTIOLOGIES
+--------------
+HTA primaire (essentielle) : 90-95% des cas
+Pas de cause identifiable unique, facteurs multifactoriels :
+génétique + surpoids + sel + alcool + sédentarité + stress
+
+HTA secondaire : 5-10% (à rechercher si grade 3, résistante, sujet jeune) :
+- Néphropathies parenchymateuses : glomérulonéphrite, polykystose
+- Sténose artère rénale : fibrodysplasie (femme jeune), athérome (homme >60ans)
+- Hyperaldostéronisme primaire (Conn) : HTA + hypokaliémie, dépistage ratio aldo/rénine
+- Phéochromocytome : HTA paroxystique + triade céphalées-sueurs-palpitations
+- Syndrome de Cushing : HTA + obésité facio-tronculaire + vergetures pourpres
+- Apnées du sommeil (SAOS) : HTA résistante, ronflement, somnolence diurne
+- Coarctation aortique : gradient PA membres supérieurs/inférieurs
+- Thyroïdite, hypo/hyperthyroïdie, hyperparathyroïdie
+
+Médicaments hypertenseurs : AINS, corticoïdes, contraceptifs oraux oestroprogestatifs,
+décongestionnants (pseudoéphédrine), réglisse, ciclosporine, VEGF inhibiteurs
+
+4. RETENTISSEMENT — ATTEINTE DES ORGANES CIBLES (AOC)
+--------------------------------------------------------
+Cœur :
+- HVG (hypertrophie ventriculaire gauche) : ECG (Sokolow-Lyon >35mm), ETT (masse VG)
+- Coronaropathie : risque ×2, IDM silencieux possible
+- Fibrillation auriculaire : risque ×1.5-2.5
+- Insuffisance cardiaque à fraction d'éjection préservée (HFpEF)
+
+Cerveau :
+- AVC ischémique et hémorragique : risque ×3-4
+- Leucoaraïose (hypersignaux substance blanche IRM)
+- Démence vasculaire
+
+Rein :
+- Néphroangiosclérosis : microalbuminurie → protéinurie → IRC
+- DFGe abaissé : facteur de risque CV indépendant
+
+Oeil :
+- Rétinopathie hypertensive (grades I-IV selon Keith-Wagener-Barker)
+- Grade III-IV : urgence hypertensive
+
+Artères :
+- Athérosclérose accélérée
+- Anévrisme aorte abdominale (dépistage écho si ≥65ans, homme fumeur)
+- Artériopathie oblitérante membres inférieurs
+
+5. BILAN INITIAL
+-----------------
+Obligatoire :
+- Créatinine sérique + DFGe (CKD-EPI)
+- Ionogramme sanguin (kaliémie +++)
+- Glycémie à jeun + HbA1c
+- Bilan lipidique (LDL, HDL, TG, CT)
+- NFS
+- Bandelette urinaire + microalbuminurie
+- ECG 12 dérivations
+- Fond d'œil si grade 2+ ou diabète
+
+Selon contexte :
+- Échocardiographie (HVG, FEVG)
+- Échographie rénale + doppler artères rénales
+- Ratio aldostérone/rénine (suspicion Conn)
+- Cortisol libre urinaire 24h (Cushing)
+- Métanéphrines plasmatiques/urinaires (phéo)
+- Polysomnographie (SAOS)
+- MAPA 24h (systématique avant traitement selon ESC 2023)
+
+6. ÉVALUATION DU RISQUE CARDIOVASCULAIRE
+------------------------------------------
+Utiliser score SCORE2 ou SCORE2-OP (European Society of Cardiology)
+Facteurs aggravants : diabète, IRC (DFGe <60), HVG, coronaropathie,
+AOMI, AVC/AIT, protéinurie, LDL >1.9 g/L, HTA grade 3
+
+Risque cardiovasculaire global oriente la décision thérapeutique :
+- Faible/Modéré : MHD 3-6 mois avant traitement médicamenteux (grade 1)
+- Élevé/Très élevé : traitement médicamenteux d'emblée
+
+7. TRAITEMENT — RÈGLES HYGIÉNO-DIÉTÉTIQUES (RHD)
+--------------------------------------------------
+Réduction sel : <5g NaCl/jour (effet -4 à -5 mmHg PAS)
+Alimentation DASH : fruits, légumes, céréales complètes, produits laitiers pauvres en graisses
+Poids : perte 10kg → réduction PAS ~6 mmHg
+Alcool : ≤14 unités/semaine homme, ≤8 unités femme
+Activité physique aérobie : 150-300 min/semaine modérée, ou 75-150 min intense
+(-4 à -5 mmHg PAS)
+Tabac : arrêt impératif (risque CV++)
+Stress : techniques de relaxation, cohérence cardiaque
+
+8. TRAITEMENT MÉDICAMENTEUX
+-----------------------------
+Cibles tensionnelles ESC 2023 :
+- Général : PAS 120-130 mmHg si toléré
+- Âgé 65-79 ans : PAS 130-139 mmHg
+- Âgé ≥80 ans : PAS 130-139 mmHg si toléré
+- Diabète : <130/80 mmHg
+- IRC : <130/80 mmHg
+
+5 classes de référence (équivalentes en efficacité antihypertensive) :
+1. IEC (inhibiteurs de l'enzyme de conversion) :
+   Ramipril, Périndopril, Énalapril
+   Indications préférentielles : IC, post-IDM, diabète (néphroprotection), sujet jeune
+   Contre-indications : grossesse, œdème angioneurotique, sténose artère rénale bilatérale
+   Effets : toux sèche (10-20%), hyperkaliémie, IR fonctionnelle
+
+2. ARA2 (antagonistes récepteurs angiotensine II) :
+   Valsartan, Olmésartan, Losartan, Candesartan
+   Équivalents aux IEC, meilleure tolérance (pas de toux)
+   Indication : si IEC intoléré, IC (Sacubitril/Valsartan = ARNI si FEVG abaissée)
+
+3. Antagonistes calciques dihydropyridines :
+   Amlodipine, Lercanidipine, Nitrendipine
+   Indication : sujet âgé, HTA systolique isolée, angine de poitrine
+   Effets : œdèmes des chevilles, flush, céphalées
+
+4. Diurétiques thiazidiques/thiazidiques-like :
+   Indapamide (préféré), Hydrochlorothiazide, Chlorthalidone
+   Indication : sujet âgé, HTA systolique isolée, insuffisance cardiaque
+   Effets : hypokaliémie, hyponatrémie, hyperuricémie, hyperglycémie
+
+5. Bêtabloquants :
+   Bisoprolol, Carvédilol, Métoprolol, Nébivolol
+   Indication préférentielle : IC, post-IDM, arythmies, grossesse (Labétalol IV urgence)
+   Moins efficaces en prévention AVC, non recommandés 1ère ligne sauf indication spécifique
+
+Stratégie combinatoire ESC 2023 :
+Étape 1 : bithérapie d'emblée recommandée si grade 2+
+Combinaison préférentielle : IEC/ARA2 + Antagoniste calcique OU Diurétique
+Éviter : IEC + ARA2 (risque IR, hyperkaliémie)
+Étape 2 : trithérapie IEC/ARA2 + Antagoniste calcique + Diurétique
+Étape 3 : HTA résistante → spironolactone (12.5-50mg), bilan étiologique, avis spécialisé
+
+9. HTA RÉSISTANTE
+------------------
+Définition : PA non contrôlée sous trithérapie optimale incluant diurétique
+Prévalence vraie : ~10% des hypertendus traités
+Avant d'affirmer : vérifier observance (dosages sanguins), mesure correcte (MAPA),
+éliminer pseudo-résistance (blouse blanche, obésité), revoir traitements hypertenseurs
+
+Causes : SAOS (PSG systématique), hyperaldostéronisme primaire (ratio aldo/rénine),
+sténose artère rénale, excès de sel
+Traitement : spironolactone 25-50mg/j (très efficace si Conn), doxazosine, bithérapie alpha-bêta
+
+10. URGENCES HYPERTENSIVES
+----------------------------
+Crise hypertensive : PA >180/110 mmHg sans atteinte d'organe cible
+Conduite : repos 15 min, re-mesure, réintroduction traitement oral
+
+Urgence hypertensive vraie : PA très élevée + atteinte organe cible
+- Encéphalopathie hypertensive (céphalées, confusion, vomissements)
+- OAP hypertensif (Furosémide IV + Dérivés nitrés IV)
+- IDM hypertensif
+- AVC hémorragique (PA cible <140 mmHg en 1h)
+- Éclampsie (Labétalol IV, Sulfate de magnésium pour prévention convulsions)
+- Dissection aortique (Esmolol IV, PA systolique <120 mmHg)
+Hospitalisation en unité de soins intensifs, traitement IV
+
+11. SUIVI
+----------
+Consultation tous les 1-3 mois jusqu'à équilibre tensionnel
+Puis tous les 6-12 mois si équilibré
+À chaque consultation : PA, fréquence cardiaque, poids, observance, effets secondaires
+Annuellement : biologie (kaliémie, créatinine, bilan lipidique, glycémie)
